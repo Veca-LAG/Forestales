@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/login_background"
+    android:background="@drawable/fondo"
     android:padding="24dp">
 
     <TextView
@@ -28,7 +28,8 @@
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
+        android:hint="Usuario"
+        android:drawableLeft="@drawable/baseline_user"
         android:inputType="textEmailAddress"/>
 
     <EditText
@@ -37,23 +38,17 @@
         android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:layout_marginTop="8dp"/>
-
-    <EditText
-        android:id="@+id/extraField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Campo adicional"
+        android:drawableLeft="@drawable/baseline_lock"
         android:layout_marginTop="8dp"/>
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/dark_wood_button"
         android:text="INICIAR SESION"
-        android:background="@drawable/rounded_button"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="16dp"/>
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/goToRegister"
@@ -63,5 +58,6 @@
         android:textColor="#FF00FF"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"/>
+
 
 </LinearLayout>

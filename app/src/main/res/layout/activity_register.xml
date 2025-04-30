@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/register_background"
+    android:background="@drawable/fondo"
     android:padding="24dp">
 
     <TextView
@@ -28,7 +28,8 @@
         android:id="@+id/registerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
+        android:hint="Usuario"
+        android:drawableLeft="@drawable/baseline_user"
         android:inputType="textEmailAddress"/>
 
     <EditText
@@ -37,13 +38,15 @@
         android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:drawableLeft="@drawable/baseline_lock"
         android:layout_marginTop="8dp"/>
 
     <EditText
         android:id="@+id/registerExtra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Campo adicional"
+        android:hint="Confirmar contraseña"
+        android:drawableLeft="@drawable/baseline_password"
         android:layout_marginTop="8dp"/>
 
     <Button
