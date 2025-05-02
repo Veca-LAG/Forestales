@@ -23,77 +23,84 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Numero (#)"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/nombreCientificoEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre científico"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/nombreComunEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre común"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/coordenadasEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Coordenadas geográficas"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/diametroEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Diámetro del fuste (cm)"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/alturaEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Altura (m)"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/hojasEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="% de hojas"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/floresEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="% de flores"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/frutosEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="% de frutos"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:padding="12dp" />
 
         <Spinner
             android:id="@+id/madurezFrutoSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:entries="@array/madurez_fruto"/>
+            android:visibility="gone"/>
 
         <Spinner
             android:id="@+id/estadoHojasSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:entries="@array/estado_hojas"/>
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,11 +112,26 @@
             android:id="@+id/interaccionGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <RadioButton android:text="Depredación" />
-            <RadioButton android:text="Mutualismo" />
-            <RadioButton android:text="Parasitismo" />
-            <RadioButton android:text="Comensalismo" />
-            <RadioButton android:text="Ninguna" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Depredación" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Mutualismo"  />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Parasitismo" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Comensalismo" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Ninguna" />
         </RadioGroup>
 
         <EditText
