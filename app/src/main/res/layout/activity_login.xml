@@ -60,7 +60,7 @@
         android:contentDescription="@string/load_button_desc"
         android:scaleType="centerCrop"
         android:textAlignment="center"
-        app:srcCompat="@drawable/dark_wood_button_load" />
+        app:srcCompat="@drawable/dark_wood_button_login" />
 
 
     <TextView
