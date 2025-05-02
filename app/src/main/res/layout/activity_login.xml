@@ -1,63 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/fondo"
-    android:padding="24dp">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:textAlignment="center">
 
     <TextView
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
         android:text="Arboles de Forestales"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:marginBottom="12dp"/>
+        />
+
 
     <TextView
+        android:id="@+id/textViewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido\niniciar sesión"
-        android:textSize="18sp"
-        android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:marginBottom="24dp"/>
+        android:gravity="center"
+        android:marginBottom="24dp"
+        android:text="iniciar sesión"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario"
+        android:minHeight="48dp"
         android:drawableLeft="@drawable/baseline_user"
-        android:inputType="textEmailAddress"/>
+        android:hint="Usuario"
+        android:inputType="textEmailAddress"
+        android:padding="12dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/baseline_lock"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:drawableLeft="@drawable/baseline_lock"
-        android:layout_marginTop="8dp"/>
+        android:padding="12dp" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/dark_wood_button"
-        android:text="INICIAR SESION"
-        android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/load_button_desc"
+        android:scaleType="centerCrop"
+        android:textAlignment="center"
+        app:srcCompat="@drawable/dark_wood_button_load" />
+
 
     <TextView
         android:id="@+id/goToRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No registrado, registrate"
-        android:textColor="#FF00FF"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="12dp"
+        android:text="No registrado, registrate"
+        android:textColor="#FF00FF" />
 
 
 </LinearLayout>

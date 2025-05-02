@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Forestales</string>
+    <string name="load_button_desc">Cargar datos</string>
+
 </resources>
