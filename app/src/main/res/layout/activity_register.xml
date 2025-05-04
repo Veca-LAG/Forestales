@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -15,7 +16,7 @@
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"/>
 
     <TextView
         android:id="@+id/textViewRegister"
@@ -25,14 +26,14 @@
         android:textSize="18sp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"/>
 
     <EditText
         android:id="@+id/registerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
-        android:drawableLeft="@drawable/baseline_user"
+        android:drawableStart="@drawable/baseline_user"
         android:inputType="textEmailAddress"
         android:padding="12dp" />
 
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:drawableLeft="@drawable/baseline_lock"
+        android:drawableStart="@drawable/baseline_lock"
         android:layout_marginTop="8dp"
         android:padding="12dp" />
 
@@ -51,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Confirmar contraseña"
-        android:drawableLeft="@drawable/baseline_password"
+        android:drawableStart="@drawable/baseline_password"
         android:layout_marginTop="8dp"
         android:padding="12dp" />
 
