@@ -15,16 +15,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public  void onCreate(SQLiteDatabase MyDatabase){
         MyDatabase.execSQL("create Table users(email Text primary key, password TEXT)");
-        MyDatabase.execSQL("create Table Arboles(numero INT primary key)");
+        MyDatabase.execSQL("create Table arboles(numero INTEGER  primary key, nombreCientifico TEXT, nombreComun TEXT, " +
+                " tipoFuste TEXT, diametroFuste REAL, diametroFusteM REAL, altura REAL," +
+                "porHojas INTEGER, porFlores INTEGER, porFrutos INTEGER, madurezFruto TEXT, estadoHojas TEXT, " +
+                "interaccion TEXT, organismo TEXT, observaciones TEXT)");
+        MyDatabase.execSQL("create Table fotos(id INTEGER PRIMARY KEY AUTOINCREMENT, numero INTEGER, URL TEXT, fuente ENUM)");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
-        MyDB.execSQL("drop Table if exists Arboles");
+        MyDB.execSQL("drop Table if exists arboles");
+        MyDB.execSQL("drop Table if exists fotos");
     }
 
-    public Boolean insertData(String email, String password){
+    public Boolean insertUser(String email, String password){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);

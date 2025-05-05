@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Boolean checkUserEmail = databaseHelper.checkEmail(email);
 
                         if(checkUserEmail == false){
-                            Boolean insert = databaseHelper.insertData(email, password);
+                            Boolean insert = databaseHelper.insertUser(email, password);
                             if(insert == true){
                                 Toast.makeText(RegisterActivity.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
