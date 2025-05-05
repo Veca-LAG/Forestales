@@ -59,24 +59,24 @@ xmlns:tools="http://schemas.android.com/tools"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:padding="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/registerExtra"
+        app:layout_constraintBottom_toTopOf="@+id/registerConfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/registerExtra"
+        android:id="@+id/registerConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:drawableStart="@drawable/baseline_password"
         android:hint="Confirmar contraseña"
         android:padding="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/RegisterButton"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginBottom="44dp"

@@ -25,35 +25,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="84dp"
-        android:contentDescription="@string/load_button_desc"
-        android:scaleType="centerCrop"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/goToRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/dark_wood_button_login" />
-
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:drawableStart="@drawable/baseline_user"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:padding="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textViewLogin"
         android:layout_width="wrap_content"
@@ -70,6 +41,21 @@
         app:layout_constraintVertical_bias="0.329" />
 
     <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:drawableStart="@drawable/baseline_user"
+        android:hint="Usuario"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,10 +65,25 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/loginButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="84dp"
+        android:contentDescription="@string/load_button_desc"
+        android:scaleType="centerCrop"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/goToRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dark_wood_button_login" />
+
 
     <TextView
         android:id="@+id/goToRegister"
