@@ -2,8 +2,13 @@ package com.example.forestales;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -75,6 +80,64 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
+
+        Spinner madurezFrutoSpinner = findViewById(R.id.madurezFrutoSpinner);
+        Spinner estadoHojasSpinner = findViewById(R.id.estadoHojasSpinner);
+        Spinner interaccionSpinner = findViewById(R.id.interaccionSpinner);
+        TextView organismoTextView = findViewById(R.id.organismoTextView);
+        EditText organismoEditText = findViewById(R.id.organismoEditText);
+
+    // Opciones del spinner
+        ArrayAdapter<String> madurezAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, new String[]{"Muy inmaduro", "Ligeramente inmaduro", "Maduro"});
+        madurezFrutoSpinner.setAdapter(madurezAdapter);
+
+        ArrayAdapter<String> estadoHojasAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, new String[]{"Hojas verdes", "Hojas amarillentas", "Hojas marchitas"});
+        estadoHojasSpinner.setAdapter(estadoHojasAdapter);
+
+        ArrayAdapter<String> interaccionAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, new String[]{"Ninguna", "Mutualismo", "Depredación", "Parasitismo"});
+        interaccionSpinner.setAdapter(interaccionAdapter);
+
+// Frutos SeekBar
+        frutosSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int porcentaje = progress * 5;
+                frutosTextView.setText("Frutos: " + porcentaje + "%");
+                madurezFrutoSpinner.setVisibility(porcentaje > 0 ? View.VISIBLE : View.GONE);
+            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+// Hojas SeekBar
+        hojasSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int porcentaje = progress * 5;
+                hojasTextView.setText("Hojas: " + porcentaje + "%");
+                estadoHojasSpinner.setVisibility(porcentaje > 0 ? View.VISIBLE : View.GONE);
+            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+// Spinner de interacción
+        interaccionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = (String) parent.getItemAtPosition(position);
+                boolean visible = !selected.equals("Ninguna");
+                organismoTextView.setVisibility(visible ? View.VISIBLE : View.GONE);
+                organismoEditText.setVisibility(visible ? View.VISIBLE : View.GONE);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+
 
         /*boton anterior*/
         Button anteriorButton = findViewById(R.id.previwewButton);

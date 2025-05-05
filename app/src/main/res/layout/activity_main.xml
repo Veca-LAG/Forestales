@@ -77,13 +77,13 @@
 
         <RadioGroup
             android:id="@+id/tipoFusteRadioGroup"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/coordenadasEditText"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5">
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coordenadasEditText">
 
             <RadioButton
                 android:id="@+id/irregular"
@@ -106,54 +106,52 @@
             android:id="@+id/fusteEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="12dp"
             android:hint="Diámetro del fuste en cm"
             android:inputType="text"
             android:padding="12dp"
-            android:visibility="visible"
             android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipoFusteRadioGroup" />
+
+            app:layout_constraintTop_toBottomOf="@+id/tipoFusteRadioGroup"
+            tools:layout_editor_absoluteX="0dp" />
 
         <EditText
             android:id="@+id/fusteMayorEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:hint="Diámetro del fuste mayor en cm"
             android:inputType="text"
             android:padding="12dp"
-            android:visibility="gone"
             android:textColor="#000000"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipoFusteRadioGroup" />
+            app:layout_constraintTop_toTopOf="@+id/fusteEditText" />
 
         <EditText
             android:id="@+id/fusteMenorEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:hint="Diámetro del fuste menor en cm"
             android:inputType="text"
             android:padding="12dp"
-            android:visibility="gone"
             android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fusteMayorEditText" />
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/alturaEditText"
+            app:layout_constraintTop_toBottomOf="@+id/fusteMayorEditText"
+            app:layout_constraintVertical_bias="0.573"
+            tools:layout_editor_absoluteX="0dp" />
 
         <EditText
             android:id="@+id/alturaEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="96dp"
             android:hint="Altura (m)"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/fusteMenorEditText"
+            app:layout_constraintTop_toBottomOf="@+id/fusteEditText"
             tools:layout_editor_absoluteX="0dp" />
 
         <Button

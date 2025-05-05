@@ -25,19 +25,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--EditText
-            android:id="@+id/hojasEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="% de hojas"
-            android:inputType="number"
-            android:padding="12dp"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewForm" /-->
-
         <TextView
             android:id="@+id/hojasTextView"
             android:layout_width="wrap_content"
@@ -61,15 +48,38 @@
             app:layout_constraintTop_toBottomOf="@+id/hojasTextView" />
 
         <TextView
+            android:id="@+id/estadoHojasTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Estados de hojas"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hojasSeekBar" />
+
+        <Spinner
+            android:id="@+id/estadoHojasSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/estadoHojasTextView" />
+
+        <TextView
             android:id="@+id/floresTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:text="Flores: 0%"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hojasSeekBar" />
+            app:layout_constraintTop_toBottomOf="@+id/estadoHojasSpinner" />
 
         <SeekBar
             android:id="@+id/floresSeekBar"
@@ -111,6 +121,7 @@
             android:layout_marginTop="12dp"
             android:text="Madurez del fruto"
             android:textSize="16sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.079"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,27 +131,13 @@
             android:id="@+id/madurezFrutoSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/madurezFrutoTextView" />
 
-        <TextView
-            android:id="@+id/estadoHojasTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Estados de hojas"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.077"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/madurezFrutoSpinner" />
 
-        <Spinner
-            android:id="@+id/estadoHojasSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@+id/estadoHojasTextView" />
 
         <TextView
             android:id="@+id/interaccionTextView"
@@ -152,13 +149,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.104"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/estadoHojasSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/madurezFrutoSpinner" />
 
         <Spinner
             android:id="@+id/interaccionSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/interaccionTextView" />
 
         <TextView
@@ -168,6 +168,8 @@
             android:layout_marginTop="20dp"
             android:text="Interacción interespecífica"
             android:textSize="16sp"
+            android:padding="6dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.104"
             app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +180,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Organimso de interración"
-            android:visibility="visible"
+            android:padding="12dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/organismoTextView" />
 
         <Button
