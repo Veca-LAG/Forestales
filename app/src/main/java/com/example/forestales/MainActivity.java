@@ -1,7 +1,9 @@
 package com.example.forestales;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        /*radio de fustes*/
         RadioGroup tipoFusteRadioGroup = findViewById(R.id.tipoFusteRadioGroup);
         RadioButton regularRadio = findViewById(R.id.regular);
         RadioButton irregularRadio = findViewById(R.id.irregular);
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 fusteMayorEditText.setVisibility(View.VISIBLE);
                 fusteMenorEditText.setVisibility(View.VISIBLE);
             }
+        });
+
+
+        /*boton siguiente*/
+        Button siguienteButton = findViewById(R.id.nextButton);
+
+        siguienteButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
         });
     }
 }

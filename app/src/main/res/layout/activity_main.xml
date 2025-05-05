@@ -16,12 +16,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
             android:text="Arboles de Forestales"
             android:textSize="26sp"
             android:textStyle="bold"
-
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +32,7 @@
             android:layout_marginTop="28dp"
             android:hint="Numero (#)"
             android:inputType="number"
-
+            android:textColor="#000000"
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -47,6 +47,7 @@
             android:hint="Nombre científico"
             android:inputType="text"
             android:padding="12dp"
+            android:textColor="#000000"
             app:layout_constraintTop_toBottomOf="@+id/numeroEditText"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -58,6 +59,7 @@
             android:hint="Nombre común"
             android:inputType="text"
             android:padding="12dp"
+            android:textColor="#000000"
             app:layout_constraintTop_toBottomOf="@+id/nombreCientificoEditText"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -69,6 +71,7 @@
             android:hint="Coordenadas geográficas"
             android:inputType="text"
             android:padding="12dp"
+            android:textColor="#000000"
             app:layout_constraintTop_toBottomOf="@+id/nombreComunEditText"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -108,6 +111,7 @@
             android:inputType="text"
             android:padding="12dp"
             android:visibility="visible"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,9 +126,10 @@
             android:inputType="text"
             android:padding="12dp"
             android:visibility="gone"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fusteEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/tipoFusteRadioGroup" />
 
         <EditText
             android:id="@+id/fusteMenorEditText"
@@ -135,6 +140,7 @@
             android:inputType="text"
             android:padding="12dp"
             android:visibility="gone"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fusteMayorEditText" />
@@ -151,11 +157,11 @@
             tools:layout_editor_absoluteX="0dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Siguiente 1/3"
+            android:text="Siguiente"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
