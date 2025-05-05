@@ -1,63 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/textViewForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
             android:text="Arboles de Forestales"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/numeroEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
             android:hint="Numero (#)"
             android:inputType="number"
-            android:padding="12dp" />
+
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewForm" />
 
         <EditText
             android:id="@+id/nombreCientificoEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="Nombre científico"
             android:inputType="text"
-            android:padding="12dp" />
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/numeroEditText"
+            tools:layout_editor_absoluteX="0dp" />
 
         <EditText
             android:id="@+id/nombreComunEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="Nombre común"
             android:inputType="text"
-            android:padding="12dp" />
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/nombreCientificoEditText"
+            tools:layout_editor_absoluteX="0dp" />
 
         <EditText
             android:id="@+id/coordenadasEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="Coordenadas geográficas"
             android:inputType="text"
-            android:padding="12dp" />
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/nombreComunEditText"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <RadioGroup
+            android:id="@+id/tipoFusteRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/coordenadasEditText"
+            app:layout_constraintBottom_toTopOf="@+id/fusteEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5">
+
+            <RadioButton
+                android:id="@+id/irregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="30dp"
+                android:text="Irregular" />
+
+            <RadioButton
+                android:id="@+id/regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="30dp"
+                android:text="Regular" />
+
+        </RadioGroup>
 
         <EditText
-            android:id="@+id/diametroEditText"
+            android:id="@+id/fusteEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Diámetro del fuste (cm)"
-            android:inputType="numberDecimal"
-            android:padding="12dp" />
+            android:layout_marginTop="68dp"
+            android:hint="Diámetro del fuste en cm"
+            android:inputType="text"
+            android:padding="12dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coordenadasEditText" />
+
+        <EditText
+            android:id="@+id/fusteMayorEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Diámetro del fuste mayor en cm"
+            android:inputType="text"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fusteEditText" />
+
+        <EditText
+            android:id="@+id/fusteMenorEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Diámetro del fuste menor en cm"
+            android:inputType="text"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fusteMayorEditText" />
 
         <EditText
             android:id="@+id/alturaEditText"
@@ -67,96 +145,6 @@
             android:inputType="numberDecimal"
             android:padding="12dp" />
 
-        <EditText
-            android:id="@+id/hojasEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="% de hojas"
-            android:inputType="number"
-            android:padding="12dp" />
 
-        <EditText
-            android:id="@+id/floresEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="% de flores"
-            android:inputType="number"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/frutosEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="% de frutos"
-            android:inputType="number"
-            android:padding="12dp" />
-
-        <Spinner
-            android:id="@+id/madurezFrutoSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
-
-        <Spinner
-            android:id="@+id/estadoHojasSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Interacción interespecífica"
-            android:layout_marginTop="8dp"/>
-
-        <RadioGroup
-            android:id="@+id/interaccionGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Depredación" />
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Mutualismo"  />
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Parasitismo" />
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Comensalismo" />
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Ninguna" />
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/organismoEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Organismo de Interacción"
-            android:visibility="gone"
-            android:inputType="text"/>
-
-        <EditText
-            android:id="@+id/observacionesEditText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:hint="Observaciones"
-            android:gravity="top"
-            android:inputType="textMultiLine"/>
-
-        <Button
-            android:id="@+id/fotoButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Subir fotos"
-            android:layout_marginTop="16dp"/>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
