@@ -26,41 +26,56 @@ xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Registrate"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerEmail"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <EditText
         android:id="@+id/registerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="20dp"
         android:drawableStart="@drawable/baseline_user"
         android:hint="Usuario"
         android:inputType="textEmailAddress"
         android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/registerJob"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/registerJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:drawableStart="@drawable/baseline_puesto"
+        android:hint="Puesto"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/registerPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/registerPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="24dp"
         android:drawableStart="@drawable/baseline_lock"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/registerConfirm"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -73,13 +88,14 @@ xmlns:tools="http://schemas.android.com/tools"
         android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/RegisterButton"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="24dp"
         android:contentDescription="@string/load_button_desc"
         android:scaleType="centerCrop"
         android:textAlignment="center"

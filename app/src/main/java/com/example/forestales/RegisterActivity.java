@@ -25,15 +25,16 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = binding.registerEmail.getText().toString();
                 String password = binding.registerPassword.getText().toString();
                 String confirmPassword = binding.registerConfirm.getText().toString();
+                String job = binding.registerJob.getText().toString();
 
-                if(email.equals("")||password.equals("")||confirmPassword.equals(""))
+                if(email.equals("")||password.equals("")||confirmPassword.equals("")||job.equals(""))
                     Toast.makeText(RegisterActivity.this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
                 else{
                     if(password.equals(confirmPassword)){
                         Boolean checkUserEmail = databaseHelper.checkEmail(email);
 
                         if(checkUserEmail == false){
-                            Boolean insert = databaseHelper.insertUser(email, password);
+                            Boolean insert = databaseHelper.insertUser(email, password, job);
                             if(insert == true){
                                 Toast.makeText(RegisterActivity.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
