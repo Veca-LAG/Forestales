@@ -58,5 +58,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
             startActivity(intent);
         });
+
+        /*boton anterior*/
+        Button anteriorButton = findViewById(R.id.previwewButton);
+
+        anteriorButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, OptionActivity.class);
+            startActivity(intent);
+        });
     }
 }

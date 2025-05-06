@@ -35,7 +35,7 @@ public class MainActivity3 extends AppCompatActivity {
         Button siguienteButton = findViewById(R.id.nextButton);
 
         siguienteButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity3.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity3.this, OptionActivity.class);
             startActivity(intent);
         });
 

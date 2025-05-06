@@ -1,6 +1,8 @@
 package com.example.forestales;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,15 @@ public class OptionActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        /*boton nuevo arbol*/
+        Button nuevoButton = findViewById(R.id.newButton);
+
+        nuevoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(OptionActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
+
 }
