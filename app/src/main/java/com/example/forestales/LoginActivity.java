@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(checkCredentials == true){
                         Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso!", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent  = new Intent(getApplicationContext(), OptionActivity.class);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "Datos invalidos", Toast.LENGTH_SHORT).show();
