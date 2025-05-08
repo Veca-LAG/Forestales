@@ -17,7 +17,7 @@ Forestales es una aplicación móvil desarrollada con Android Studio que permite
 * Esperar a que Gradle sincronice y descargue dependencias necesarias.
 3. Ejecutar la aplicación:
 * Conectar un dispositivo Android real o usar un emulador.
-* Hacer clic en el botón de **"Run" (▶️)** en Android Studio.
+* Hacer clic en el botón de **"Run" (▶️)** en Android Studio.  
 _Nota: Requiere Android Studio Arctic Fox o superior y mínimo Android SDK 21 (Lollipop)._
 ## Donde los usuarios pueden encontrar ayuda sobre su proyecto
 Si tienes preguntas o necesitas soporte:
