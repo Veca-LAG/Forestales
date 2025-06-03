@@ -35,3 +35,5 @@ Si tienes preguntas o necesitas soporte:
 * [Ramos Barrera Ernesto Manuel](https://github.com/netito74)
 * [Sánchez Jiménez Lizeth Elisa](https://github.com/Elis12519)
 * [Velasco Naranjo Mane Isabela](https://github.com/Veca-LAG)
+## Licencia
+<a href="https://github.com/Veca-LAG/Forestales/tree/master">Aplicación móvil para registro</a> 2025 por <a href="https://github.com/Veca-LAG/Forestales/tree/master">Camacho García Gabriel Sebastián, Jiménez Venegas Alejandra, Ramos Barrera Ernesto Manuel, Sánchez Jiménez Lizeth Elisa y Velasco Naranjo Mane Isabela</a> está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
