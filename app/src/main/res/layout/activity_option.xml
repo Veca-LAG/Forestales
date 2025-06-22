@@ -5,13 +5,34 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionActivity">
+    tools:context=".OptionActivity"
+    android:background="#B2FFFF">
+
+    <TextView
+        android:id="@+id/agregar"
+        android:layout_width="412dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="opciones forestales "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/newButton"
-        android:layout_width="wrap_content"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:text="Agregar arbol"
+        android:backgroundTint="#BFFF60"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/modButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,36 +40,50 @@
         app:layout_constraintVertical_bias="0.784" />
 
 
-
     <Button
         android:id="@+id/eraseButton"
-        android:layout_width="wrap_content"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="#BFFF60"
         android:text="Eliminar arboles"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/viewButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/modButton"
-        android:layout_width="wrap_content"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#BFFF60"
         android:text="modificar arboles"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/eraseButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/viewButton"
-        android:layout_width="wrap_content"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="112dp"
+        android:backgroundTint="#BFFF60"
         android:text="Ver arboles"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/exitButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/exitButton"
@@ -56,6 +91,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:text="SALIR"
+        android:backgroundTint="#BFFF60"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"

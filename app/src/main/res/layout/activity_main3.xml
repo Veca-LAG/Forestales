@@ -2,95 +2,463 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="#B2FFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- HOJAS -->
 
         <TextView
-            android:id="@+id/textViewForm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Arboles de Forestales"
-            android:textSize="26sp"
+            android:id="@+id/agregar"
+            android:layout_width="412dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Arboles Forestales"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/observacionesView"
+            android:id="@+id/tvHojas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Observaciones:"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewForm" />
-
-        <EditText
-            android:id="@+id/observacionesEditText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
             android:layout_marginTop="16dp"
-            android:gravity="top"
-            android:hint="Observaciones"
-            android:inputType="textMultiLine"
-            app:layout_constraintTop_toBottomOf="@+id/observacionesView"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <Button
-            android:id="@+id/fotoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Subir fotos"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Hojas: 0%"
+            android:drawableStart="@drawable/baseline_leaves"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/observacionesEditText" />
+            app:layout_constraintTop_toBottomOf="@id/agregar" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:adjustViewBounds="true"
-            android:contentDescription="Foto tomada"
-            app:layout_constraintTop_toBottomOf="@id/fotoButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.5"
+        <SeekBar
+            android:id="@+id/seekHojas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvHojas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinnerHojas"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="36dp"
-            android:text="Finalizar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <Button
-            android:id="@+id/previwewButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Anterior"
-            app:layout_constraintEnd_toStartOf="@+id/nextButton"
-            app:layout_constraintHorizontal_bias="0.236"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/seekHojas"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/layoutBotonesHojas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerHojas">
+
+            <Button
+                android:id="@+id/btnGaleriaHojas"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#BFFF60"
+                 />
+
+
+            <Button
+                android:id="@+id/btnCamaraHojas"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#BFFF60"
+                 />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgHojas"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Imagen"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesHojas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- FLORES -->
+        <TextView
+            android:id="@+id/tvFlores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Flores: 0%"
+            android:drawableStart="@drawable/baseline_flower"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgHojas" />
+
+        <SeekBar
+            android:id="@+id/seekFlores"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvFlores"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutBotonesFlores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekFlores">
+
+            <Button
+                android:id="@+id/btnGaleriaFlores"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#BFFF60"
+                />
+
+            <Button
+                android:id="@+id/btnCamaraFlores"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#BFFF60"
+                 />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgFlores"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesFlores"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- FRUTOS -->
+        <TextView
+            android:id="@+id/tvFrutos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Frutos: 0%"
+            android:drawableStart="@drawable/baseline_fruits"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgFlores" />
+
+        <SeekBar
+            android:id="@+id/seekFrutos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvFrutos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinnerFrutos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/seekFrutos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutBotonesFrutos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerFrutos">
+
+            <Button
+                android:id="@+id/btnGaleriaFrutos"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#BFFF60"
+                />
+
+            <Button
+                android:id="@+id/btnCamaraFrutos"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#BFFF60"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgFrutos"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesFrutos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- RAMAS -->
+        <TextView
+            android:id="@+id/tvRamas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ramas:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgFrutos" />
+
+        <EditText
+            android:id="@+id/etRamas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvRamas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutBotonesRamas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etRamas">
+
+            <Button
+                android:id="@+id/btnGaleriaRamas"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#BFFF60"
+                />
+
+            <Button
+                android:id="@+id/btnCamaraRamas"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#BFFF60"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgRamas"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesRamas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- CORTEZA -->
+
+        <EditText
+            android:id="@+id/etCorteza"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:minHeight="48dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvCorteza"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutBotonesCorteza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etCorteza">
+
+            <Button
+                android:id="@+id/btnGaleriaCorteza"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#BFFF60"
+                />
+
+            <Button
+                android:id="@+id/btnCamaraCorteza"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#BFFF60"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCorteza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:text="Corteza:"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgRamas" />
+
+        <ImageView
+            android:id="@+id/imgCorteza"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesCorteza"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Agrega Corteza, Usos, Observaciones, Imagen General igual que ramas -->
+        <!--USOS-->
+        <TextView
+            android:id="@+id/tvUsos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Usos:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgCorteza" />
+
+        <EditText
+            android:id="@+id/etUsos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:minHeight="48dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvUsos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--OBSERVACIONES-->
+        <TextView
+            android:id="@+id/tvObservacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Observaciones:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUsos" />
+
+        <EditText
+            android:id="@+id/etObservacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:minHeight="48dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvObservacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/etGeneral"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Foto general del árbol(lo mas centrado)"
+            app:layout_constraintTop_toBottomOf="@id/etObservacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <LinearLayout
+            android:id="@+id/layoutBotonesGeneral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etGeneral">
+
+
+
+            <Button
+                android:id="@+id/btnGaleriaGeneral"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#BFFF60"
+                />
+
+            <Button
+                android:id="@+id/btnCamaraGeneral"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#BFFF60"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgGeneral"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesGeneral"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Botones finales -->
+        <!--LinearLayout
+            android:id="@+id/botonesFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/imgRamas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btnAnterior"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Anterior"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:backgroundTint="#BFFF60" />
+
+            <Button
+                android:id="@+id/btnFinalizar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Finalizar"
+                android:backgroundTint="#BFFF60"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

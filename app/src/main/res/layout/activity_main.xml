@@ -2,183 +2,206 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="#B2FFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:visibility="visible">
 
         <TextView
-            android:id="@+id/textViewForm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Arboles de Forestales"
-            android:textSize="26sp"
+            android:id="@+id/agregar"
+            android:layout_width="412dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Arboles Forestales"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Número de acceso -->
         <EditText
-            android:id="@+id/numeroEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/etNumeroAcceso"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:hint="Numero (#)"
-            android:inputType="number"
-            android:textColor="#000000"
-            android:padding="12dp"
+            android:layout_marginTop="36dp"
+            android:minHeight="48dp"
+            android:background="@color/white"
+            android:hint="Numero de acceso(ID)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewForm" />
+            app:layout_constraintTop_toBottomOf="@id/agregar" />
 
+        <!-- Nombre de Familia -->
         <EditText
-            android:id="@+id/nombreCientificoEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/etNombreFamilia"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Nombre científico"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/numeroEditText"
-            tools:layout_editor_absoluteX="0dp" />
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:hint="Nombre de Familia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNumeroAcceso" />
 
+        <!-- Nombre común -->
         <EditText
-            android:id="@+id/nombreComunEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/etNombreComun"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
             android:hint="Nombre común"
-            android:inputType="text"
-            android:padding="12dp"
             android:textColor="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/nombreCientificoEditText"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNombreFamilia" />
+
+        <!-- Nombre científico - Género -->
+
+        <TextView
+            android:id="@+id/nombreCientifico"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nombre científico:"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNombreComun" />
 
         <EditText
-            android:id="@+id/coordenadasEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/etGenero"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Coordenadas geográficas"
-            android:inputType="text"
-            android:padding="12dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:hint="Género"
             android:textColor="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/nombreComunEditText"
-            tools:layout_editor_absoluteX="0dp" />
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nombreCientifico" />
 
-        <RadioGroup
-            android:id="@+id/tipoFusteRadioGroup"
+        <!-- Especie -->
+        <EditText
+            android:id="@+id/etEspecie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:background="@color/white"
+            android:hint="especie"
+            android:textColor="#000000"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etGenero" />
+
+
+
+        <!-- ¿Especie no originaria? -->
+        <CheckBox
+            android:id="@+id/chkNoOriginaria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="¿Especie no originaria?"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEspecie" />
+
+        <!-- Ecología y distribución -->
+        <EditText
+            android:id="@+id/etEcologia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:hint="ecología y distribución"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chkNoOriginaria" />
+
+        <!-- Clasificación taxonómica -->
+        <EditText
+            android:id="@+id/etClasificacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:hint="Clasificación taxonómica"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEcologia" />
+
+        <!-- Coordenadas -->
+        <EditText
+            android:id="@+id/etCoordenadas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:hint="Coordenadas( Latitud, Longitud)"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etClasificacion" />
+
+        <!-- Botones -->
+        <LinearLayout
+            android:id="@+id/botonLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coordenadasEditText">
+            app:layout_constraintTop_toBottomOf="@id/etCoordenadas">
 
-            <RadioButton
-                android:id="@+id/irregular"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="30dp"
-                android:text="Irregular" />
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#BFFF60"
+                android:text="Cancelar"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/regular"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnSiguiente"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:paddingHorizontal="30dp"
-                android:text="Regular" />
-        </RadioGroup>
-
-
-        <EditText
-            android:id="@+id/fusteEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Diámetro del fuste en cm"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#000000"
-
-            app:layout_constraintTop_toBottomOf="@+id/tipoFusteRadioGroup"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <EditText
-            android:id="@+id/fusteMayorEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Diámetro del fuste mayor en cm"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#000000"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/fusteEditText" />
-
-        <EditText
-            android:id="@+id/fusteMenorEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Diámetro del fuste menor en cm"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#000000"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/alturaEditText"
-            app:layout_constraintTop_toBottomOf="@+id/fusteMayorEditText"
-            app:layout_constraintVertical_bias="0.573"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <EditText
-            android:id="@+id/alturaEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
-            android:hint="Altura (m)"
-            android:inputType="numberDecimal"
-            android:padding="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/fusteEditText"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Siguiente"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.767"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/alturaEditText"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/previwewButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Volver"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/nextButton"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/alturaEditText"
-            app:layout_constraintVertical_bias="0.0" />
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#BFFF60"
+                android:text="Siguiente"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
