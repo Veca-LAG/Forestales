@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seekHojas" />
@@ -64,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinnerHojas">
@@ -94,6 +96,7 @@
             android:layout_marginTop="8dp"
             android:contentDescription="Imagen"
             android:background="#FFFFFF"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/layoutBotonesHojas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -124,6 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seekFlores">
@@ -153,6 +157,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="8dp"
             android:background="#FFFFFF"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/layoutBotonesFlores"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -183,6 +188,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seekFrutos" />
@@ -193,6 +199,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinnerFrutos">
@@ -220,6 +227,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="8dp"
             android:background="#FFFFFF"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/layoutBotonesFrutos"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -461,14 +469,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
         <!-- Botones finales -->
-        <!--LinearLayout
+        <LinearLayout
             android:id="@+id/botonesFinal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/imgRamas"
+            app:layout_constraintTop_toBottomOf="@id/imgGeneral"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -492,7 +500,7 @@
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:layout_marginStart="8dp" />
-        </LinearLayout-->
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

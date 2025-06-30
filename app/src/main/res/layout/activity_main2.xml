@@ -259,27 +259,30 @@
             android:hint="Especie u organismo involucrado"
             android:background="@color/white"
             android:minHeight="48dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/spinnerInteraccion"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="12dp" />
 
         <!-- Combustibles -->
+
+        <!-- Combustible fino -->
         <CheckBox
             android:id="@+id/presencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Presencia de combustibles naturales"
-            app:layout_constraintTop_toBottomOf="@id/etEspecie"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@id/etEspecie" />
 
-        <!-- Combustible fino -->
         <TextView
             android:id="@+id/finos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Combustible finos"
+            android:visibility="gone"
             android:textStyle="bold"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -291,6 +294,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:columnCount="2"
+
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/finos">
@@ -328,6 +333,7 @@
             android:layout_marginTop="12dp"
             android:text="Combustible pesados"
             android:textStyle="bold"
+            android:visibility="gone"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutCombustiblesFinos" />
@@ -338,6 +344,8 @@
             android:layout_height="97dp"
             android:layout_marginTop="8dp"
             android:columnCount="2"
+
+            android:visibility="gone"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -378,6 +386,7 @@
             android:layout_marginTop="12dp"
             android:text="Peligro de extensión de incendio:"
             android:textSize="20sp"
+            android:visibility="gone"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutCombustiblesPesados" />
@@ -388,6 +397,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
+
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/tvPeligro"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
