@@ -1,19 +1,76 @@
+<
 
 # Projecto Forestales
 
 ## Descripción de su proyecto
 Forestales es una aplicación móvil desarrollada con Android Studio que permite registrar y administrar datos relevantes del sector forestal. Esta app fue creada como parte de un proyecto académico para facilitar la gestión de información en campo, optimizando el proceso de recolección y análisis forestal.
+
+---
 ## Funcionalidades
-* Documentación de Frutos y Flores: Registro de la fecha exacta en que se documentan frutos y flores observados en el entorno natural.
-* Clasificación Taxonómica: Visualización del número de especies por familia, promoviendo un análisis sistemático de la biodiversidad.
-* Usos Tradicionales de las Especies: Registro de usos conocidos de cada especie (comestible, medicinal, ornamental, etc.).
-* Relaciones Ecológicas: Información sobre el tipo de relación con animales o insectos (parasitarias, simbióticas, etc.), acompañadas de fotografías si están disponibles.
-* Estándar de Nombre Científico: Uso formal del nombre científico: compuesto por dos palabras (género y especie), seguido del nombre del autor y el año. Si la especie ha cambiado de nombre, se añade entre paréntesis el nombre anterior.
-* Estado de Conservación: Indicación de si la especie está en peligro de extinción, si es una especie protegida, y si la amenaza es local, regional o global.
-* Listado de Especies Protegidas: Módulo específico que despliega una lista de especies con estatus de protección legal o ecológica.
-* Acceso por Nombre Identificativo: Se reemplazan los números de acceso por nombres de acceso descriptivos, facilitando la comprensión y búsqueda de registros.
-* Instrumentación Científica: Registro del instrumento utilizado para medir el diámetro y otras variables (como cinta diamétrica, calibrador, etc.).
-* Hábito de Crecimiento: Clasificación del hábito de crecimiento (arbóreo, arbustivo, trepador, herbáceo, etc.) para cada especie.
+
+## 📌 Descripción del Proyecto
+
+**Forestales** es una aplicación móvil Android que permite registrar información detallada de árboles en campo, con fines de conservación, monitoreo ecológico y análisis botánico. Inspirado en estándares como los de **Trópicos.org**, este sistema facilita una documentación científica precisa, desde la morfología hasta las condiciones ambientales.
+
+---
+## ✨ Funcionalidades
+El formulario principal de la app incluye las siguientes secciones:
+
+### 🔹 Identificación del Árbol
+- **Número de acceso (ID):** Identificador único del árbol.
+- **Nombre científico:** Ej. *Ficus insipida*.
+- **Nombre común:** Ej. Higuera.
+- **¿Es especie original del lugar?:** Sí / No (Si no, se solicita el lugar de origen.)
+- **Clasificación taxonómica:** Familia, género, etc. (opcional)
+- **Número de especies similares observadas en la zona**
+---
+
+### 📍 Ubicación y Fecha
+- **Coordenadas GPS:** Latitud y Longitud
+- **Fecha de registro:** dd/mm/aaaa
+---
+
+### 🌿 Características del Árbol
+- **Hábito de crecimiento:** Enredadera / Liana / Hierba / Arbóreo / Arbustivo
+- **Tipo de crecimiento:** Prioritaria / Endémica / Microendémica / Nativa / Introducida / Invasora
+- **Altura estimada (m)**
+  - Método: Cinta métrica / A ojo
+- **Diámetro a la altura del pecho (DAP)**
+  - Método: Vernier / Cinta métrica / A ojo
+- **Estado de salud general:** Bueno / Regular / Malo
+---
+
+### 🌱 Fisiología y Reproducción
+- **Porcentaje de hojas:** 0–100% en intervalos de 5%
+- **Estado de hojas:** Muy inmaduras / Ligeramente inmaduras / Maduras
+- **Foto de hojas**
+- **Porcentaje de flores:** 0–100% en intervalos de 5%
+- **Foto de flores**
+- **Porcentaje de frutos:** 0–100% en intervalos de 5%
+- **Madurez de frutos:** Verdes / Amarillentos / Marchitos
+- **Foto de frutos** (opcional)
+---
+
+### 🌾 Condiciones y Ecología
+- **Interacciones interespecíficas:** Depredación / Mutualismo / Parasitismo / Comensalismo / Ninguna
+  - Especie u organismo involucrado
+- **Disturbios meteorológicos recientes:** Tormentas, sequías, huracanes, etc.
+- **¿Presencia de combustibles naturales cercanos?:** Sí / No
+  - **Finos:** Hojarasca, hierbas, ramitas, humus
+  - **Pesados:** Ramas, tallos, troncos, arbustos
+- **Peligro de extensión de incendio:** Bajo / Medio / Alto / Ninguno
+- **¿Zona protegida?:** Sí / No
+---
+
+### 🪵 Características Físicas
+- **Corteza:** Descripción de textura, color, rasgos únicos
+- **Foto de corteza**
+---
+
+### 🧠 Usos y Observaciones
+- **Usos por humanos:** Medicinal, maderable, ornamental, alimenticia, etc.
+- **Observaciones adicionales**
+- **Foto general del árbol** (centrada)
 ## Cómo pueden usarlo los usuarios
 1. Clonar el repositorio:
     [git clone](https://github.com/Veca-LAG/Forestales.git)
