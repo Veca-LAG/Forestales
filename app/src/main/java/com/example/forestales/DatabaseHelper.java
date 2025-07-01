@@ -15,19 +15,64 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public  void onCreate(SQLiteDatabase MyDatabase){
         MyDatabase.execSQL("create Table users(email Text primary key, password TEXT, job TEXT)");
-        MyDatabase.execSQL("create Table arboles(numero INTEGER  primary key, nombreCientifico TEXT, nombreComun TEXT, " +
-                " tipoFuste TEXT, diametroFuste REAL, diametroFusteM REAL, altura REAL," +
-                "porHojas INTEGER, porFlores INTEGER, porFrutos INTEGER, madurezFruto TEXT, estadoHojas TEXT, " +
-                "interaccion TEXT, organismo TEXT, observaciones TEXT)");
-        MyDatabase.execSQL("create Table fotos(id INTEGER PRIMARY KEY AUTOINCREMENT, numero INTEGER, URL TEXT, fuente ENUM)");
+
+        MyDatabase.execSQL("CREATE TABLE Arboles (" +
+                "numeroAcceso INTEGER PRIMARY KEY, " +
+                "nombreFamilia TEXT, " +
+                "nombreComun TEXT, " +
+                "nombreCientificoGenero TEXT, " +
+                "nombreCientificoEspecie TEXT, " +
+                "especieOriginaria BOOLEAN, " +
+                "ecologiaDistribucion TEXT, " +
+                "clasificaionTaxonomica TEXT, " +
+                "coordenadas TEXT)");
+        MyDatabase.execSQL("CREATE TABLE registro (" +
+                "idRegistro INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "fecha DATE, " +
+                "numeroAcceso INTEGER, " +
+                "habitoCrecimiento TEXT, " +
+                "tipoCrecimiento TEXT, " +
+                "altura REAL, " +
+                "medirAltura TEXT, " +
+                "diametroFuste REAL, " +
+                "medirDiametroFuste TEXT, " +
+                "EstadoSalud TEXT, " +
+                "disturbiosMeteorologicos TEXT, " +
+                "interacciones TEXT, " +
+                "organismoInteracciones TEXT, " +
+                "presenciaCombustibles BOOLEAN, " +
+                "combustiblesFinos TEXT, " +
+                "combustiblesPesados TEXT, " +
+                "peligroIncendio TEXT, " +
+                "hojas INTEGER, " +
+                "estadoHojas TEXT, " +
+                "flores INTEGER, " +
+                "frutos INTEGER, " +
+                "estadoFrutos TEXT, " +
+                "ramas TEXT, " +
+                "corteza TEXT, " +
+                "usos TEXT, " +
+                "Observaciones TEXT, " +
+                "FOREIGN KEY(numeroAcceso) REFERENCES Arboles(numeroAcceso))");
+
+        MyDatabase.execSQL("CREATE TABLE imagen (" +
+                "idRegistro INTEGER, " +
+                "archivoHojas BLOB, extensionHojas TEXT, " +
+                "archivoFlores BLOB, extensionFlores TEXT, " +
+                "archivoFrutos BLOB, extensionFrutos TEXT, " +
+                "archivoRamas BLOB, extensionRamas TEXT, " +
+                "archivoCorteza BLOB, extensionCorteza TEXT, " +
+                "archivoGeneral BLOB, extensionGeneral TEXT, " +
+                "FOREIGN KEY(idRegistro) REFERENCES registro(idRegistro))");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
-        MyDB.execSQL("drop Table if exists arboles");
-        MyDB.execSQL("drop Table if exists fotos");
+        MyDB.execSQL("drop Table if exists Arboles");
+        MyDB.execSQL("drop Table if exists registro");
+        MyDB.execSQL("drop Table if exists imagen");
     }
 
     public Boolean insertUser(String email, String password, String job){

@@ -1,226 +1,156 @@
 package com.example.forestales;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-
+import android.widget.Toast;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    private static final int REQUEST_CAMERA_PERMISSION = 100;
-    private Uri photoURI;
-    private ActivityResultLauncher<Uri> takePictureLauncher;
-    private String currentPhotoPath;
+    private SeekBar seekHojas, seekFlores, seekFrutos;
+    private TextView tvHojas, tvFlores, tvFrutos;
+
+    private Spinner spinnerHojas, spinnerFrutos;
+    private LinearLayout layoutBotonesHojas, layoutBotonesFlores, layoutBotonesFrutos;
+    private ImageView imgHojas, imgFlores, imgFrutos;
+
+    private EditText etRamas, etCorteza, etUsos, etObservaciones;
+
+    private Button btnAnterior, btnFinalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main3);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
-        /*boton foto*/
-        initCameraLauncher();
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+        btnAnterior = findViewById(R.id.btnAnterior);
 
-        Button btnFoto = findViewById(R.id.fotoButton);
-        btnFoto.setOnClickListener(v -> checkCameraPermission());
+        // Referencias SeekBars y TextViews
+        seekHojas = findViewById(R.id.seekHojas);
+        tvHojas = findViewById(R.id.tvHojas);
 
-        /*boton anterior*/
-        Button anteriorButton = findViewById(R.id.previwewButton);
+        seekFlores = findViewById(R.id.seekFlores);
+        tvFlores = findViewById(R.id.tvFlores);
 
-        anteriorButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
-            startActivity(intent);
-        });
+        seekFrutos = findViewById(R.id.seekFrutos);
+        tvFrutos = findViewById(R.id.tvFrutos);
 
-        /*boton siguiente*/
-        Button siguienteButton = findViewById(R.id.nextButton);
+        // Referencias Spinner, LayoutBotones, Imagen para cada sección
+        spinnerHojas = findViewById(R.id.spinnerHojas);
+        layoutBotonesHojas = findViewById(R.id.layoutBotonesHojas);
+        imgHojas = findViewById(R.id.imgHojas);
 
-        siguienteButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity3.this, OptionActivity.class);
-            startActivity(intent);
-        });
+        layoutBotonesFlores = findViewById(R.id.layoutBotonesFlores);
+        imgFlores = findViewById(R.id.imgFlores);
 
-    }
+        spinnerFrutos = findViewById(R.id.spinnerFrutos);
+        layoutBotonesFrutos = findViewById(R.id.layoutBotonesFrutos);
+        imgFrutos = findViewById(R.id.imgFrutos);
 
-    /*fotos*/
-    private void initCameraLauncher() {
-        takePictureLauncher = registerForActivityResult(
-                new ActivityResultContracts.TakePicture(),
-                result -> {
-                    if (result) {
-                        ImageView imageView = findViewById(R.id.imageView);
-                        imageView.setImageURI(photoURI);
-                        pedirNombreParaFoto();
-                    } else {
-                        Toast.makeText(this, "No se capturó imagen", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
-    }
+        // EditTexts multiline
+        etRamas = findViewById(R.id.etRamas);
+        etCorteza = findViewById(R.id.etCorteza);
+        etUsos = findViewById(R.id.etUsos);
+        etObservaciones = findViewById(R.id.etObservacion);
 
-    private void checkCameraPermission() {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.CAMERA},
-                    REQUEST_CAMERA_PERMISSION);
-        } else {
-            launchCamera();
-        }
-    }
+        configurarEditTextMultiline(etRamas);
+        configurarEditTextMultiline(etCorteza);
+        configurarEditTextMultiline(etUsos);
+        configurarEditTextMultiline(etObservaciones);
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                launchCamera();
+        // Configura Spinners
+        String[] opcionesHojas = {"Hojas verdes", "Hojas amarillentas", "Hojas marchitas"};
+        spinnerHojas.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, opcionesHojas));
+
+        String[] opcionesFrutos = {"Muy inmaduro", "Ligeramente inmaduro", "Maduro"};
+        spinnerFrutos.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, opcionesFrutos));
+
+        // Configura cada SeekBar
+        configurarSeekBar(seekHojas, tvHojas, "Hojas", spinnerHojas, layoutBotonesHojas, imgHojas);
+        configurarSeekBar(seekFlores, tvFlores, "Flores", null, layoutBotonesFlores, imgFlores);
+        configurarSeekBar(seekFrutos, tvFrutos, "Frutos", spinnerFrutos, layoutBotonesFrutos, imgFrutos);
+
+        // Botones finales
+        btnAnterior = findViewById(R.id.btnAnterior);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        btnAnterior.setOnClickListener(v -> finish());
+
+        btnFinalizar.setOnClickListener(v -> {
+            if (validarCampos()) {
+                new AlertDialog.Builder(this)
+                        .setTitle("Guardar datos")
+                        .setMessage("¿Deseas guardar esta información?")
+                        .setPositiveButton("Sí", (dialog, which) -> {
+                            guardarEnBaseDeDatos();
+                            Toast.makeText(this, "Datos guardados.", Toast.LENGTH_SHORT).show();
+                            finish();
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             } else {
-                Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Completa todos los campos obligatorios.", Toast.LENGTH_SHORT).show();
             }
-        }
+        });
     }
 
-    private void launchCamera() {
-        try {
-            File photoFile = createImageFile();
-            photoURI = FileProvider.getUriForFile(
-                    this,
-                    "com.example.Forestales.fileprovider",
-                    photoFile);
-            takePictureLauncher.launch(photoURI);
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Error al crear archivo de imagen", Toast.LENGTH_SHORT).show();
-        }
-    }
+    private void configurarSeekBar(
+            SeekBar seekBar,
+            TextView textView,
+            String label,
+            View spinner,
+            View layoutBotones,
+            View imageView
+    ) {
+        seekBar.setMax(20); // 0-100 en pasos de 5
 
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int valor = progress * 5;
+                textView.setText(label + ": " + valor + "%");
 
-    private void pedirNombreParaFoto() {
-        final EditText editText = new EditText(this);
-        editText.setHint("Nombre para la foto");
-
-        new AlertDialog.Builder(this)
-                .setTitle("¿Guardar la foto?")
-                .setMessage("Si te gusta la foto, ingresa un nombre para guardarla.\nSi no, presiona 'Descartar'.")
-                .setView(editText)
-                .setPositiveButton("Guardar", (dialog, which) -> {
-                    String nuevoNombre = editText.getText().toString().trim();
-                    if (!nuevoNombre.isEmpty()) {
-                        renombrarFoto(nuevoNombre);
-                    } else {
-                        Toast.makeText(this, "Nombre vacío, no se guardó", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("Descartar", (dialog, which) -> descartarFoto())
-                .setCancelable(false)
-                .show();
-    }
-
-    private void descartarFoto() {
-        File file = new File(currentPhotoPath);
-        if (file.exists() && file.delete()) {
-            Toast.makeText(this, "Foto descartada", Toast.LENGTH_SHORT).show();
-            ImageView imageView = findViewById(R.id.imageView);
-            imageView.setImageDrawable(null);
-        } else {
-            Toast.makeText(this, "No se pudo eliminar la foto", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void renombrarFoto(String nuevoNombre) {
-        File originalFile = new File(currentPhotoPath);
-        File nuevoArchivo = new File(originalFile.getParent(), nuevoNombre + ".jpg");
-
-        if (originalFile.renameTo(nuevoArchivo)) {
-            currentPhotoPath = nuevoArchivo.getAbsolutePath();
-            Toast.makeText(this, "Foto guardada como: " + nuevoNombre + ".jpg", Toast.LENGTH_SHORT).show();
-            guardarEnGaleria(nuevoArchivo, nuevoNombre);
-        } else {
-            Toast.makeText(this, "Error al renombrar la foto", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void guardarEnGaleria(File origen, String nombre) {
-        File directorioGaleria = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "Forestales");
-
-        if (!directorioGaleria.exists()) {
-            if (!directorioGaleria.mkdirs()) {
-                Toast.makeText(this, "No se pudo crear carpeta Forestales", Toast.LENGTH_SHORT).show();
-                return;
+                if (valor > 0) {
+                    if (spinner != null) spinner.setVisibility(View.VISIBLE);
+                    if (layoutBotones != null) layoutBotones.setVisibility(View.VISIBLE);
+                    if (imageView != null) imageView.setVisibility(View.VISIBLE);
+                } else {
+                    if (spinner != null) spinner.setVisibility(View.GONE);
+                    if (layoutBotones != null) layoutBotones.setVisibility(View.GONE);
+                    if (imageView != null) imageView.setVisibility(View.GONE);
+                }
             }
-        }
-
-        File destino = new File(directorioGaleria, nombre + ".jpg");
-
-        try (InputStream in = new FileInputStream(origen);
-             OutputStream out = new FileOutputStream(destino)) {
-
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = in.read(buffer)) > 0) {
-                out.write(buffer, 0, length);
-            }
-
-            MediaScannerConnection.scanFile(
-                    this,
-                    new String[]{destino.getAbsolutePath()},
-                    new String[]{"image/jpeg"},
-                    null
-            );
-
-            Toast.makeText(this, "Copia guardada en galería (Forestales)", Toast.LENGTH_SHORT).show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Error al copiar a galería", Toast.LENGTH_SHORT).show();
-        }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
     }
 
+    private void configurarEditTextMultiline(EditText editText) {
+        editText.setSingleLine(false);
+        editText.setMaxLines(10);
+        editText.setLines(5);
+        editText.setHorizontallyScrolling(false);
+        editText.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+    }
 
+    private boolean validarCampos() {
+        // Aquí pones la validación real
+        return true;
+    }
+
+    private void guardarEnBaseDeDatos() {
+        // Aquí guardarías tu objeto FormData o como quieras persistirlo
+        // Ejemplo: DatabaseHelper db = new DatabaseHelper(this);
+        // db.insertRegistroCompleto(FormData.getInstance().build());
+    }
 }

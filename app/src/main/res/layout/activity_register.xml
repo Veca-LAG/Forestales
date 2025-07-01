@@ -9,6 +9,7 @@ xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/fondo"
     android:padding="24dp">
 
+
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
@@ -16,20 +17,20 @@ xmlns:tools="http://schemas.android.com/tools"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:text="Arboles de Forestales"
-        android:textSize="48sp"
         android:textColor="#000000"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09" />
 
     <TextView
         android:id="@+id/textViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Registrate"
         android:textColor="#000000"
@@ -37,13 +38,14 @@ xmlns:tools="http://schemas.android.com/tools"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintVertical_bias="0.535" />
 
     <EditText
         android:id="@+id/registerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/baseline_user"
         android:hint="Usuario"
         android:inputType="textEmailAddress"
@@ -58,106 +60,108 @@ xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/textPuesto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:drawableStart="@drawable/baseline_puesto"
         android:text="Puesto: "
+        android:textColor="#000000"
         android:textSize="20sp"
-
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/registerJob"
-        app:layout_constraintTop_toBottomOf="@id/registerEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
 
     <Spinner
         android:id="@+id/registerJob"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:hint="Puesto"
         android:minHeight="48dp"
         android:padding="12dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/otherJob"
+        android:backgroundTint="@color/black"
+        android:foregroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerEmail"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textPuesto" />
 
     <EditText
         android:id="@+id/otherJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="20dp"
         android:hint="Otro puesto"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="#000000"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/registerJob"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerJob" />
 
     <EditText
         android:id="@+id/registerPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/baseline_lock"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/registerConfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otherJob"
-        app:layout_constraintVertical_bias="0.662" />
+        app:layout_constraintTop_toBottomOf="@+id/otherJob" />
 
     <EditText
         android:id="@+id/registerConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:drawableStart="@drawable/baseline_password"
         android:hint="Confirmar contraseña"
+        android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
 
     <Button
         android:id="@+id/RegisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#000000"
         android:contentDescription="@string/load_button_desc"
         android:scaleType="centerCrop"
         android:text="REGISTRARSE"
         android:textAlignment="center"
         android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/goToLogin"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerConfirm" />
 
     <TextView
         android:id="@+id/goToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
         android:text="Ya es usuario, iniciar sesion"
         android:textColor="#050505"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterButton"
+        app:layout_constraintVertical_bias="0.301" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
