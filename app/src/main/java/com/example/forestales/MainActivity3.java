@@ -1,7 +1,12 @@
 package com.example.forestales;
 
 import android.Manifest;
+import android.content.ContentValues;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +30,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -42,7 +48,7 @@ public class MainActivity3 extends AppCompatActivity {
     private Spinner spinnerHojas, spinnerFrutos;
     private LinearLayout layoutBotonesHojas, layoutBotonesFlores, layoutBotonesFrutos;
     private ImageView imgHojas, imgFlores, imgFrutos, imgRamas, imgCorteza, imgGeneral;
-    private EditText etRamas, etCorteza, etUsos, etObservaciones;
+    private EditText etRamas, etCorteza, etUsos, etObservacion;
     private Button btnAnterior, btnFinalizar;
 
     private static final int REQUEST_CAMERA_PERMISSION = 100;
@@ -51,6 +57,8 @@ public class MainActivity3 extends AppCompatActivity {
     private String currentPhotoPath;
     private String tipoImagen = "";
     private ImageView imageViewActual = null;
+
+    DatabaseHelper myDBHelper = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +90,7 @@ public class MainActivity3 extends AppCompatActivity {
         etRamas = findViewById(R.id.etRamas);
         etCorteza = findViewById(R.id.etCorteza);
         etUsos = findViewById(R.id.etUsos);
-        etObservaciones = findViewById(R.id.etObservacion);
+        etObservacion = findViewById(R.id.etObservacion);
 
         btnAnterior = findViewById(R.id.btnAnterior);
         btnFinalizar = findViewById(R.id.btnFinalizar);
@@ -90,7 +98,7 @@ public class MainActivity3 extends AppCompatActivity {
         configurarEditTextMultiline(etRamas);
         configurarEditTextMultiline(etCorteza);
         configurarEditTextMultiline(etUsos);
-        configurarEditTextMultiline(etObservaciones);
+        configurarEditTextMultiline(etObservacion);
 
         String[] opcionesHojas = {"Hojas verdes", "Hojas amarillentas", "Hojas marchitas"};
         spinnerHojas.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, opcionesHojas));
@@ -137,6 +145,77 @@ public class MainActivity3 extends AppCompatActivity {
 
         btnAnterior.setOnClickListener(v -> finish());
         btnFinalizar.setOnClickListener(v -> {
+            // Porcentajes y datos
+            int hojasPorcentaje = seekHojas.getProgress();
+            String hojasInteraccion = spinnerHojas.getSelectedItem() != null ?
+                    spinnerHojas.getSelectedItem().toString().trim() : "";
+
+            int floresPorcentaje = seekFlores.getProgress();
+            int frutosPorcentaje = seekFrutos.getProgress();
+            String frutosInteraccion = spinnerFrutos.getSelectedItem() != null ?
+                    spinnerFrutos.getSelectedItem().toString().trim() : "";
+
+            String descripcionRamas = etRamas.getText().toString().trim();
+            String descripcionCorteza = etCorteza.getText().toString().trim();
+            String descripcionUsos = etUsos.getText().toString().trim();
+            String descripcionObservaciones = etObservacion.getText().toString().trim();
+
+            // Validaciones básicas
+            if (floresPorcentaje == 0 && hojasPorcentaje == 0 && frutosPorcentaje == 0) {
+                Toast.makeText(this, "Debe ingresar al menos un porcentaje de Hojas, Flores o Frutos.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            FormData data = FormData.getInstance();
+            data.hojas = hojasPorcentaje;
+            data.estadoHojas = hojasInteraccion;
+            data.flores = floresPorcentaje;
+            data.frutos = frutosPorcentaje;
+            data.estadoFrutos = frutosInteraccion;
+
+            data.Ramas = descripcionRamas;
+            data.corteza = descripcionCorteza;
+            data.usos = descripcionUsos;
+            data.observaciones = descripcionObservaciones;
+
+
+            // Hojas
+            if (imgHojas.getDrawable() != null) {
+                data.archivoHojas = imageViewToByteArray(imgHojas, "jpg");
+                data.extensionHojas = ".jpg";
+            }
+
+// Flores
+            if (imgFlores.getDrawable() != null) {
+                data.archivoFlores = imageViewToByteArray(imgFlores, "jpg");
+                data.extensionFlores = ".jpg";
+            }
+
+// Frutos
+            if (imgFrutos.getDrawable() != null) {
+                data.archivoFrutos = imageViewToByteArray(imgFrutos, "jpg");
+                data.extensionFrutos = ".jpg";
+            }
+
+// Ramas
+            if (imgRamas.getDrawable() != null) {
+                data.archivoRamas = imageViewToByteArray(imgRamas, "jpg");
+                data.extensionRamas = ".jpg";
+            }
+
+// Corteza
+            if (imgCorteza.getDrawable() != null) {
+                data.archivoCorteza = imageViewToByteArray(imgCorteza, "jpg");
+                data.extensionCorteza = ".jpg";
+            }
+
+// General
+            if (imgGeneral.getDrawable() != null) {
+                data.archivoGeneral = imageViewToByteArray(imgGeneral, "jpg");
+                data.extensionGeneral = ".jpg";
+            }
+
+
             if (validarCampos()) {
                 new AlertDialog.Builder(this)
                         .setTitle("Guardar datos")
@@ -144,7 +223,8 @@ public class MainActivity3 extends AppCompatActivity {
                         .setPositiveButton("Sí", (dialog, which) -> {
                             guardarEnBaseDeDatos();
                             Toast.makeText(this, "Datos guardados.", Toast.LENGTH_SHORT).show();
-                            finish();
+                            Intent intent = new Intent(MainActivity3.this, OptionActivity.class);
+                            startActivity(intent);
                         })
                         .setNegativeButton("No", null)
                         .show();
@@ -284,6 +364,29 @@ public class MainActivity3 extends AppCompatActivity {
         });
     }
 
+    private byte[] imageViewToByteArray(ImageView imageView, String format) {
+        imageView.setDrawingCacheEnabled(true);
+        imageView.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+        Bitmap.CompressFormat compressFormat;
+        switch (format.toLowerCase()) {
+            case "png":
+                compressFormat = Bitmap.CompressFormat.PNG;
+                break;
+            case "webp":
+                compressFormat = Bitmap.CompressFormat.WEBP;
+                break;
+            default:
+                compressFormat = Bitmap.CompressFormat.JPEG;
+                break;
+        }
+
+        bitmap.compress(compressFormat, 100, stream);
+        return stream.toByteArray();
+    }
+
     private void configurarEditTextMultiline(EditText editText) {
         editText.setSingleLine(false);
         editText.setMaxLines(10);
@@ -297,6 +400,74 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     private void guardarEnBaseDeDatos() {
-        // Tu lógica aquí
+        SQLiteDatabase db = myDBHelper.getWritableDatabase();
+
+        FormData.RegistroCompleto data = FormData.getInstance().build();
+
+        // 1️⃣ Insertar en tabla Arboles (usa REPLACE si quieres actualizar)
+        ContentValues arbolValues = new ContentValues();
+        arbolValues.put("numeroAcceso", data.numeroAcceso);
+        arbolValues.put("nombreFamilia", data.nombreFamilia);
+        arbolValues.put("nombreComun", data.nombreComun);
+        arbolValues.put("nombreCientificoGenero", data.nombreCientificoGenero);
+        arbolValues.put("nombreCientificoEspecie", data.nombreCientificoEspecie);
+        arbolValues.put("especieOriginaria", data.especieOriginaria ? 1 : 0);
+        arbolValues.put("ecologiaDistribucion", data.ecologiaDistribucion);
+        arbolValues.put("clasificaionTaxonomica", data.clasificaionTaxonomica);
+        arbolValues.put("coordenadas", data.coordenadas);
+
+        db.insertWithOnConflict("Arboles", null, arbolValues, SQLiteDatabase.CONFLICT_REPLACE);
+
+        // 2️⃣ Insertar en tabla registro
+        ContentValues registroValues = new ContentValues();
+        registroValues.put("fecha", new java.text.SimpleDateFormat("yyyy-MM-dd").format(data.fecha));
+        registroValues.put("numeroAcceso", data.numeroAcceso);
+        registroValues.put("habitoCrecimiento", data.habitoCrecimiento);
+        registroValues.put("tipoCrecimiento", data.tipoCrecimiento);
+        registroValues.put("altura", data.altura);
+        registroValues.put("medirAltura", data.medirAltura);
+        registroValues.put("diametroFuste", data.diametroFuste);
+        registroValues.put("medirDiametroFuste", data.medirDiametroFuste);
+        registroValues.put("EstadoSalud", data.estadoSalud);
+        registroValues.put("disturbiosMeteorologicos", data.disturbiosMeteorologicos);
+        registroValues.put("interacciones", data.interacciones);
+        registroValues.put("organismoInteracciones", data.organismoInteracciones);
+        registroValues.put("presenciaCombustibles", data.presenciaCombustibles ? 1 : 0);
+        registroValues.put("combustiblesFinos", data.combustiblesFinos);
+        registroValues.put("combustiblesPesados", data.combustiblesPesados);
+        registroValues.put("peligroIncendio", data.peligroIncendio);
+        registroValues.put("hojas", data.hojas);
+        registroValues.put("estadoHojas", data.estadoHojas);
+        registroValues.put("flores", data.flores);
+        registroValues.put("frutos", data.frutos);
+        registroValues.put("estadoFrutos", data.estadoFrutos);
+        registroValues.put("ramas", data.Ramas);
+        registroValues.put("corteza", data.corteza);
+        registroValues.put("usos", data.usos);
+        registroValues.put("Observaciones", data.observaciones);
+
+        long idRegistro = db.insert("registro", null, registroValues);
+
+        // 3️⃣ Insertar en tabla imagen
+        ContentValues imagenValues = new ContentValues();
+        imagenValues.put("idRegistro", idRegistro);
+        imagenValues.put("archivoHojas", data.archivoHojas);
+        imagenValues.put("extensionHojas", data.extensionHojas);
+        imagenValues.put("archivoFlores", data.archivoFlores);
+        imagenValues.put("extensionFlores", data.extensionFlores);
+        imagenValues.put("archivoFrutos", data.archivoFrutos);
+        imagenValues.put("extensionFrutos", data.extensionFrutos);
+        imagenValues.put("archivoRamas", data.archivoRamas);
+        imagenValues.put("extensionRamas", data.extensionRamas);
+        imagenValues.put("archivoCorteza", data.archivoCorteza);
+        imagenValues.put("extensionCorteza", data.extensionCorteza);
+        imagenValues.put("archivoGeneral", data.archivoGeneral);
+        imagenValues.put("extensionGeneral", data.extensionGeneral);
+
+        db.insert("imagen", null, imagenValues);
+
+        db.close();
+
+        Toast.makeText(this, "Registro guardado correctamente.", Toast.LENGTH_SHORT).show();
     }
 }
