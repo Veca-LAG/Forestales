@@ -5,8 +5,8 @@
     android:id="@+id/mainScroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#729E2E "
     android:fillViewport="true"
-    android:background="#B2FFFF"
     tools:context=".OptionActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,9 +34,9 @@
             android:layout_height="3dp"
             android:layout_marginTop="8dp"
             android:background="#000000"
-            app:layout_constraintTop_toBottomOf="@id/agregar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/agregar" />
 
         <Button
             android:id="@+id/newButton"

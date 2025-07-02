@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-    android:background="#B2FFFF">
+    android:background="#729E2E ">
 
     <!-- Scrollable content -->
     <ScrollView
@@ -13,10 +12,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/btnVolver"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/layoutContenedor"
@@ -30,92 +29,92 @@
                 android:id="@+id/tvTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ver árboles"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="24dp"
+                android:text="Ver árboles"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <!-- Fila Árbol 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Arbol 1"
-                    android:textSize="18sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnEditar1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Más detalles"
                     android:backgroundTint="#BFFF60"
+                    android:text="Más detalles"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold"  />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- Fila Árbol 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Arbol 2"
-                    android:textSize="18sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnEditar2"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Más detalles"
                     android:backgroundTint="#BFFF60"
+                    android:text="Más detalles"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold"  />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- Fila Árbol 3 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="32dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="32dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Arbol 3"
-                    android:textSize="18sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnEditar3"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Más detalles"
                     android:backgroundTint="#BFFF60"
+                    android:text="Más detalles"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold"  />
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -125,13 +124,13 @@
         android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver"
+        android:layout_margin="16dp"
         android:backgroundTint="#BFFF60"
+        android:text="Volver"
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

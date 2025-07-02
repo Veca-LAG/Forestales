@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B2FFFF">
+    android:background="#729E2E ">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -44,9 +44,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:minHeight="48dp"
             android:hint="fecha (dd/mm/aaaa)"
             android:inputType="date"
+            android:minHeight="48dp"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,9 +60,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Hábito de crecimiento:"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.598"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,10 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textStyle="bold"
             android:text="Tipo de crecimiento:"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.553"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,8 +112,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:background="@color/white"
-            android:minHeight="48dp"
             android:hint="Altura (m)"
+            android:minHeight="48dp"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -124,26 +124,30 @@
             android:id="@+id/rgAltura"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="28dp"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/tvAltura"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tvAltura">
+
             <RadioButton
+                android:layout_width="107dp"
+                android:layout_height="48dp"
                 android:text="Clinómetro"
-                android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="107dp"/>
+                android:textColor="#000000" />
+
             <RadioButton
+                android:layout_width="115dp"
+                android:layout_height="48dp"
                 android:text="Pistola Haga"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:layout_width="70dp"
                 android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="115dp"/>
-            <RadioButton android:text="A ojo"
-                android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="70dp"/>
+                android:text="A ojo"
+                android:textColor="#000000" />
         </RadioGroup>
 
         <!-- Diámetro del fuste -->
@@ -151,39 +155,42 @@
             android:id="@+id/tvDiametro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:minHeight="48dp"
-            android:hint="Diámetro del fuste (cm)"
-            android:textColor="#000000"
             android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@id/rgAltura"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:background="@color/white"
+            android:hint="Diámetro del fuste (cm)"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgAltura" />
 
         <RadioGroup
             android:id="@+id/rgDiametro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="28dp"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/tvDiametro"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tvDiametro">
+
             <RadioButton
+                android:layout_width="125dp"
+                android:layout_height="48dp"
                 android:text="Cinta métrica"
-                android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="125dp"/>
+                android:textColor="#000000" />
+
             <RadioButton
+                android:layout_width="80dp"
+                android:layout_height="48dp"
                 android:text="Vernier"
-                android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="80dp"/>
+                android:textColor="#000000" />
+
             <RadioButton
-                android:text="A ojo"
+                android:layout_width="125dp"
                 android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="125dp"/>
+                android:text="A ojo"
+                android:textColor="#000000" />
         </RadioGroup>
 
         <!-- Aquí continúa la estructura de los elementos como el estado de salud, disturbios, etc. -->
@@ -194,9 +201,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Estado de salud:"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rgDiametro" />
 
@@ -204,26 +211,29 @@
             android:id="@+id/rgSalud"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/tvSalud"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tvSalud">
+
             <RadioButton
+                android:layout_width="80dp"
+                android:layout_height="48dp"
                 android:text="Bueno"
-                android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="80dp"/>
+                android:textColor="#000000" />
+
             <RadioButton
+                android:layout_width="85dp"
+                android:layout_height="48dp"
                 android:text="Regular"
-                android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="85dp"/>
+                android:textColor="#000000" />
+
             <RadioButton
-                android:text="Malo"
+                android:layout_width="80dp"
                 android:layout_height="48dp"
-                android:textColor="#000000"
-                android:layout_width="80dp"/>
+                android:text="Malo"
+                android:textColor="#000000" />
         </RadioGroup>
 
         <!-- Disturbios meteorológicos -->
@@ -234,9 +244,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Disturbios meteorológicos"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rgSalud" />
 
@@ -256,9 +266,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Interacciones interespecífica:"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinnerDisturbios" />
 
@@ -275,15 +285,15 @@
             android:id="@+id/etEspecie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Especie u organismo involucrado"
+            android:layout_marginTop="12dp"
             android:background="@color/white"
+            android:hint="Especie u organismo involucrado"
             android:minHeight="48dp"
-            android:visibility="gone"
             android:textColor="#000000"
-            app:layout_constraintTop_toBottomOf="@id/spinnerInteraccion"
-            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerInteraccion" />
 
         <!-- Combustibles -->
 
@@ -293,8 +303,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textColor="#000000"
             android:text="Presencia de combustibles naturales"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEspecie" />
 
@@ -303,10 +313,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Combustible finos"
-            android:visibility="gone"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/presencia" />
 
@@ -325,30 +335,30 @@
             <CheckBox
                 android:id="@+id/chkHojas"
                 android:layout_width="100dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Hojas" />
+                android:text="Hojas"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/chkRamitas"
                 android:layout_width="100dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Troncos" />
+                android:text="Troncos"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/chkHierbas"
                 android:layout_width="100dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Tallos" />
+                android:text="Tallos"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/chkHumus"
                 android:layout_width="100dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Arbustos" />
+                android:text="Arbustos"
+                android:textColor="#000000" />
         </GridLayout>
 
         <!-- Combustible pesado -->
@@ -358,10 +368,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Combustible pesados"
+            android:textColor="#000000"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:visibility="gone"
-            android:textSize="20sp"
-            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutCombustiblesFinos" />
 
@@ -372,8 +382,8 @@
             android:layout_marginTop="8dp"
             android:columnCount="2"
 
-            android:visibility="gone"
             android:gravity="center"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pesados">
@@ -381,32 +391,31 @@
             <CheckBox
                 android:id="@+id/chkRamas"
                 android:layout_width="80dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Ramas" />
+                android:text="Ramas"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/chkTroncos"
                 android:layout_width="150dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Troncos" />
+                android:text="Troncos"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/chkTallos"
                 android:layout_width="80dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Tallos" />
+                android:text="Tallos"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/chkArbustos"
                 android:layout_width="150dp"
-                android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:text="Arbustos" />
+                android:text="Arbustos"
+                android:textColor="#000000" />
         </GridLayout>
-
 
 
         <!-- Peligro de incendio -->
@@ -416,10 +425,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Peligro de extensión de incendio:"
-            android:textSize="20sp"
-            android:visibility="gone"
-            android:textStyle="bold"
             android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutCombustiblesPesados" />
 
@@ -427,33 +436,33 @@
             android:id="@+id/rgPeligro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
 
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvPeligro"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tvPeligro">
 
             <RadioButton
                 android:layout_width="80dp"
                 android:layout_height="48dp"
-                android:textColor="#000000"
                 android:text="Alto"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <RadioButton
                 android:layout_width="90dp"
                 android:layout_height="48dp"
-                android:textColor="#000000"
                 android:text="Medio"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <RadioButton
                 android:layout_width="80dp"
                 android:layout_height="48dp"
-                android:textColor="#000000"
                 android:text="Bajo"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
         </RadioGroup>
@@ -479,10 +488,9 @@
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:backgroundTint="#BFFF60"
-                android:textColor="#000000"
-                android:textSize="24sp"
                 android:text="Anterior"
-                />
+                android:textColor="#000000"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/btnSiguiente"
@@ -491,9 +499,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:backgroundTint="#BFFF60"
+                android:text="Siguiente"
                 android:textColor="#000000"
-                android:textSize="24sp"
-                android:text="Siguiente" />
+                android:textSize="24sp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

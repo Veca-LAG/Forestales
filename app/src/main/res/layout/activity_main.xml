@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B2FFFF">
+    android:background="#729E2E ">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,10 +33,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:minHeight="48dp"
             android:background="@color/white"
-            android:textColor="@color/black"
             android:hint="Numero de acceso(ID)"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,11 +47,11 @@
             android:id="@+id/etNombreFamilia"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
-            android:textColor="@color/black"
             android:hint="Nombre de Familia"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etNumeroAcceso" />
@@ -61,11 +61,11 @@
             android:id="@+id/etNombreComun"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
-            android:textColor="@color/black"
             android:hint="Nombre común"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etNombreFamilia" />
@@ -87,10 +87,10 @@
             android:id="@+id/etGenero"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:hint="Género"
+            android:minHeight="48dp"
             android:textColor="#000000"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,15 +103,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:minHeight="48dp"
             android:background="@color/white"
             android:hint="especie"
+            android:minHeight="48dp"
             android:textColor="#000000"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etGenero" />
-
 
 
         <!-- ¿Especie no originaria? -->
@@ -121,8 +120,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="¿Especie no originaria?"
-            android:textStyle="bold"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEspecie" />
 
@@ -130,13 +129,13 @@
         <EditText
             android:id="@+id/etEcologia"
             android:layout_width="0dp"
-            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:hint="ecología y distribución"
+            android:minHeight="48dp"
             android:textColor="#000000"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/chkNoOriginaria" />
@@ -146,10 +145,10 @@
             android:id="@+id/etClasificacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:hint="Clasificación taxonómica"
+            android:minHeight="48dp"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -160,10 +159,10 @@
             android:id="@+id/etCoordenadas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:hint="Coordenadas( Latitud, Longitud)"
+            android:minHeight="48dp"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
