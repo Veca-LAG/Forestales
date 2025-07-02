@@ -91,11 +91,24 @@ public class MainActivity2 extends AppCompatActivity {
                 new String[]{"Depredación", "Mutualismo", "Parasitismo", "Comensalismo", "Ninguna"}));
 
         String intera = spinnerInteraccion.getSelectedItem().toString().trim();
-        if(!(intera.equals("Ninguna"))){
-            etEspecie.setVisibility(View.VISIBLE);
-        }else{
-            etEspecie.setVisibility(View.GONE);
-        }
+        // 3. Listener para detectar cambios
+        spinnerInteraccion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String intera = spinnerInteraccion.getSelectedItem().toString().trim();
+                if (!intera.equals("Ninguna")) {
+                    etEspecie.setVisibility(View.VISIBLE);
+                } else {
+                    etEspecie.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Opcional: podrías ocultar o dejar visible según prefieras
+                etEspecie.setVisibility(View.GONE);
+            }
+        });
 
         btnAnterior.setOnClickListener(v -> finish());
 
@@ -108,9 +121,7 @@ public class MainActivity2 extends AppCompatActivity {
             String fuste = tvDiametro.getText().toString().trim();
             String disturbio = spinnerDisturbios.getSelectedItem().toString().trim();
             String organismo="";
-            if(!(intera.equals("Ninguna"))) {
-                organismo = etEspecie.getText().toString().trim();
-            }
+
             boolean pres = presencia.isChecked();
 
             int idAlt = rgAltura.getCheckedRadioButtonId();
@@ -123,9 +134,17 @@ public class MainActivity2 extends AppCompatActivity {
                 return;
             }
 
-            if (habito.isEmpty() || tipo.isEmpty() || alt.isEmpty() || fuste.isEmpty() || disturbio.isEmpty() || intera.isEmpty() || organismo.isEmpty()) {
-                Toast.makeText(this, "Todos los campos son obligatorios.", Toast.LENGTH_SHORT).show();
-                return;
+            if (habito.isEmpty() || tipo.isEmpty() || alt.isEmpty() || fuste.isEmpty() || disturbio.isEmpty() || intera.isEmpty() ) {
+                if(!(intera.equals("Ninguna"))) {
+                    organismo = etEspecie.getText().toString().trim();
+                    if(organismo.isEmpty()){
+                        Toast.makeText(this, "Todos los campos son obligatorios.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }else{
+                    Toast.makeText(this, "Todos los campos son obligatorios.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
 
             if (pres && !(chkHojas.isChecked() || chkRamitas.isChecked() || chkHierbas.isChecked() || chkHumus.isChecked() ||
