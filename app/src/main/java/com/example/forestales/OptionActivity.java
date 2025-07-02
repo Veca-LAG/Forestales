@@ -20,7 +20,7 @@ public class OptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_option);
 
 
-        /*boton nuevo arbol*/
+        /*botón nuevo arbol*/
         Button nuevoButton = findViewById(R.id.newButton);
 
         nuevoButton.setOnClickListener(v -> {
@@ -28,7 +28,7 @@ public class OptionActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        /*boton modificar arbol*/
+        /*botón modificar arbol*/
         Button modificarButton = findViewById(R.id.modButton);
 
         modificarButton.setOnClickListener(v -> {
@@ -36,7 +36,7 @@ public class OptionActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        /*boton eliminar arbol*/
+        /*botón eliminar arbol*/
         Button eliminarButton = findViewById(R.id.eraseButton);
 
         eliminarButton.setOnClickListener(v -> {
@@ -44,7 +44,7 @@ public class OptionActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        /*boton ver arbol*/
+        /*botón ver arbol*/
         Button verButton = findViewById(R.id.viewButton);
 
         verButton.setOnClickListener(v -> {

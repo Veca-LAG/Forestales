@@ -23,9 +23,8 @@ public class ModifyActivity extends AppCompatActivity {
             return insets;
         });
 
-        /*boton anterior*/
+        /*Botón anterior*/
         Button anteriorButton = findViewById(R.id.btnVolver);
-
         anteriorButton.setOnClickListener(v -> finish());
     }
 }
