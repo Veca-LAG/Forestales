@@ -94,6 +94,8 @@ public class MainActivity2 extends AppCompatActivity {
         String intera = spinnerInteraccion.getSelectedItem().toString().trim();
         if(!(intera.equals("Ninguna"))){
             etEspecie.setVisibility(View.VISIBLE);
+        }else{
+            etEspecie.setVisibility(View.GONE);
         }
 
         btnAnterior.setOnClickListener(v -> finish());
