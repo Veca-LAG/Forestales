@@ -247,13 +247,13 @@
             android:id="@+id/etRamas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Descripción"
-            android:minHeight="48dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:gravity="top|start"
+            android:hint="Descripción"
             android:inputType="textMultiLine"
-            android:maxLines="10"
             android:lines="5"
+            android:maxLines="10"
+            android:minHeight="48dp"
             android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -293,10 +293,10 @@
             android:layout_width="200dp"
             android:layout_height="150dp"
             android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@id/layoutBotonesRamas"
+            android:background="#F5F5DC	"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesRamas" />
 
         <!-- CORTEZA -->
 

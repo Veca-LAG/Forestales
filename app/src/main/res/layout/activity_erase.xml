@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#729E2E ">
+    android:background="#2E4600">
 
     <!-- Scroll con contenido -->
     <ScrollView
@@ -32,8 +32,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
                 android:text="Eliminar árboles"
-                android:textColor="#000000"
-                android:textSize="24sp"
+                android:textColor="#C7E8A9	"
+                android:textSize="34sp"
                 android:textStyle="bold" />
 
             <!-- Fila Árbol 1 -->
@@ -49,16 +49,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Árbol 1"
-                    android:textColor="#000000"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnEditar1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#BFFF60"
+                    android:backgroundTint="#D4EC6E "
                     android:text="Eliminar"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Árbol 2"
-                    android:textColor="#000000"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <Button
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Árbol 3"
-                    android:textColor="#000000"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <Button

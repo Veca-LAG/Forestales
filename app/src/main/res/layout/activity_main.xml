@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#729E2E ">
+    android:background="#2E4600 ">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="ForestApp"
-            android:textColor="@color/black"
+            android:textColor="#B7E283	"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Numero de acceso(ID)"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -48,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Nombre de Familia"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -62,7 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Nombre común"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -79,6 +79,7 @@
             android:text="Nombre científico:"
             android:textSize="24sp"
             android:textStyle="bold|italic"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etNombreComun" />
@@ -88,7 +89,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Género"
             android:minHeight="48dp"
             android:textColor="#000000"
@@ -103,7 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="especie"
             android:minHeight="48dp"
             android:textColor="#000000"
@@ -122,6 +123,7 @@
             android:text="¿Especie no originaria?"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEspecie" />
 
@@ -146,7 +148,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Clasificación taxonómica"
             android:minHeight="48dp"
             android:textColor="#000000"
@@ -160,7 +162,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Coordenadas( Latitud, Longitud)"
             android:minHeight="48dp"
             android:textColor="#000000"
@@ -186,9 +188,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="#BFFF60"
+                android:backgroundTint="#7D4427"
                 android:text="Cancelar"
-                android:textColor="#000000"
+                android:textColor="#F2F0F0"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -198,9 +200,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="#BFFF60"
+                android:backgroundTint="#A2C523"
                 android:text="Siguiente"
-                android:textColor="#000000"
+                android:textColor="#F8F7F7"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>

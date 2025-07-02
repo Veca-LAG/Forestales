@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#729E2E ">
+    android:background="#2E4600">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="ForestApp"
-            android:textColor="@color/black"
+            android:textColor="#B7E283	"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             android:id="@+id/etFecha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="fecha (dd/mm/aaaa)"
             android:inputType="date"
             android:minHeight="48dp"
@@ -111,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Altura (m)"
             android:minHeight="48dp"
             android:textColor="#000000"
@@ -156,7 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:background="@color/white"
+            android:background="#F5F5DC	"
             android:hint="Diámetro del fuste (cm)"
             android:minHeight="48dp"
             android:textColor="#000000"
