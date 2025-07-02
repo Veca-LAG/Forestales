@@ -246,7 +246,7 @@ public class MainActivity3 extends AppCompatActivity {
     private void launchCamera() {
         try {
             File photoFile = createImageFile();
-            photoURI = FileProvider.getUriForFile(this, "com.example.FotosCarpeta.fileprovider", photoFile);
+            photoURI = FileProvider.getUriForFile(this, "com.example.forestales.fileprovider", photoFile);
             takePictureLauncher.launch(photoURI);
         } catch (IOException e) {
             e.printStackTrace();
