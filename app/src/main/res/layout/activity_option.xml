@@ -20,7 +20,7 @@
             android:layout_height="69dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Opciones de árboles "
+            android:text="Menú"
             android:textColor="#B7E283"
             android:textSize="36sp"
             android:textStyle="bold"
