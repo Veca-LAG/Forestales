@@ -12,22 +12,22 @@
         android:padding="16dp"
         android:visibility="visible">
 
+        <!-- Número de acceso -->
         <TextView
             android:id="@+id/agregar"
             android:layout_width="412dp"
             android:layout_height="69dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Arboles Forestales"
+            android:text="ForestApp"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="36sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Número de acceso -->
         <EditText
             android:id="@+id/etNumeroAcceso"
             android:layout_width="0dp"
