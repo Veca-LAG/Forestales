@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity2 extends AppCompatActivity {
-
     Button btnSiguiente, btnAnterior;
     EditText etFecha;
     CheckBox chkFechaPersonalizada, presencia;
