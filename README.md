@@ -1,9 +1,9 @@
 <
 
-# Projecto Forestales
+# ForestApp
 
 ## Descripción de su proyecto
-Forestales es una aplicación móvil desarrollada con Android Studio que permite registrar y administrar datos relevantes del sector forestal. Esta app fue creada como parte de un proyecto académico para facilitar la gestión de información en campo, optimizando el proceso de recolección y análisis forestal.
+ForestApp es una aplicación móvil desarrollada con Android Studio que permite registrar y administrar datos relevantes del sector forestal. Esta app fue creada como parte de un proyecto académico para facilitar la gestión de información en campo, optimizando el proceso de recolección y análisis forestal.
 
 ---
 ## Funcionalidades
