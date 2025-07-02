@@ -26,9 +26,6 @@ public class ViewActivity extends AppCompatActivity {
         /*boton anterior*/
         Button anteriorButton = findViewById(R.id.btnVolver);
 
-        anteriorButton.setOnClickListener(v -> {
-            Intent intent = new Intent(ViewActivity.this, OptionActivity.class);
-            startActivity(intent);
-        });
+        anteriorButton.setOnClickListener(v -> finish());
     }
 }

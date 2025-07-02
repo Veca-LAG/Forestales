@@ -26,10 +26,7 @@ public class EraseActivity extends AppCompatActivity {
         /*boton anterior*/
         Button anteriorButton = findViewById(R.id.btnVolver);
 
-        anteriorButton.setOnClickListener(v -> {
-            Intent intent = new Intent(EraseActivity.this, OptionActivity.class);
-            startActivity(intent);
-        });
+        anteriorButton.setOnClickListener(v -> finish());
 
     }
 }
