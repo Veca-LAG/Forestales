@@ -32,89 +32,17 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
                 android:text="Eliminar árboles"
-                android:textColor="#C7E8A9	"
+                android:textColor="#C7E8A9"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
-            <!-- Fila Árbol 1 -->
+            <!-- Lista dinámica de árboles -->
             <LinearLayout
+                android:id="@+id/listaArboles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Árbol 1"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btnEditar1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#D4EC6E "
-                    android:text="Eliminar"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Fila Árbol 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Árbol 2"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btnEditar2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#D4EC6E"
-                    android:text="Eliminar"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Fila Árbol 3 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Árbol 3"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btnEditar3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#D4EC6E"
-                    android:text="Eliminar"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                android:orientation="vertical">
+                <!-- Los elementos se añadirán dinámicamente aquí -->
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

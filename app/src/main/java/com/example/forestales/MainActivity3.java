@@ -161,10 +161,6 @@ public class MainActivity3 extends AppCompatActivity {
             String descripcionObservaciones = etObservacion.getText().toString().trim();
 
             // Validaciones básicas
-            if (floresPorcentaje == 0 && hojasPorcentaje == 0 && frutosPorcentaje == 0) {
-                Toast.makeText(this, "Debe ingresar al menos un porcentaje de Hojas, Flores o Frutos.", Toast.LENGTH_SHORT).show();
-                return;
-            }
 
             FormData data = FormData.getInstance();
             data.hojas = hojasPorcentaje;
@@ -413,7 +409,7 @@ public class MainActivity3 extends AppCompatActivity {
         arbolValues.put("nombreCientificoEspecie", data.nombreCientificoEspecie);
         arbolValues.put("especieOriginaria", data.especieOriginaria ? 1 : 0);
         arbolValues.put("ecologiaDistribucion", data.ecologiaDistribucion);
-        arbolValues.put("clasificaionTaxonomica", data.clasificaionTaxonomica);
+        arbolValues.put("clasificacionTaxonomica", data.clasificaionTaxonomica);
         arbolValues.put("coordenadas", data.coordenadas);
 
         db.insertWithOnConflict("Arboles", null, arbolValues, SQLiteDatabase.CONFLICT_REPLACE);
