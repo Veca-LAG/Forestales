@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Arbol 1"
-                    android:textColor="#000000"
+                    android:textColor="#F2F0F0"
                     android:textSize="18sp" />
 
                 <Button
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Arbol 2"
-                    android:textColor="#000000"
+                    android:textColor="#F2F0F0"
                     android:textSize="18sp" />
 
                 <Button
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Arbol 3"
-                    android:textColor="#000000"
+                    android:textColor="#F2F0F0"
                     android:textSize="18sp" />
 
                 <Button
