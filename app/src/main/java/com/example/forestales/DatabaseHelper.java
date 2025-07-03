@@ -126,4 +126,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.insert("registro", null, values);
         return result != -1;
     }
+
+
+    // Método para eliminar un árbol por su ID
+    public boolean deleteTree(int treeId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Primero eliminamos los registros asociados al árbol
+        db.delete("registro", "numeroAcceso = ?", new String[]{String.valueOf(treeId)});
+        // Luego eliminamos el árbol
+        int result = db.delete("Arboles", "numeroAcceso = ?", new String[]{String.valueOf(treeId)});
+        return result > 0;
+    }
+
+    // Método para obtener todos los árboles con más información
+    public Cursor getAllTreesDetailed() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT numeroAcceso, nombreComun, nombreCientificoGenero, nombreCientificoEspecie " +
+                        "FROM Arboles ORDER BY nombreComun",
+                null
+        );
+    }
 }
