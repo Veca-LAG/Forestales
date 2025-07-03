@@ -25,7 +25,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="471dp"
             android:orientation="vertical"
             android:padding="24dp">
 
@@ -34,22 +34,22 @@
                 android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="ForestApp"
                 android:textColor="#1A3300"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal" />
+                android:textSize="48sp"
+                android:textStyle="bold" />
 
             <!-- Subtítulo -->
             <TextView
                 android:id="@+id/textViewLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
                 android:text="Iniciar sesión"
                 android:textColor="#4B6F2F"
-                android:textSize="20sp"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal" />
+                android:textSize="24sp" />
 
             <!-- Usuario -->
             <EditText
@@ -57,12 +57,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
+                android:backgroundTint="#B8CFA7"
                 android:drawableStart="@drawable/baseline_user"
                 android:hint="Usuario"
-                android:backgroundTint="#B8CFA7"
-                android:textColor="#1A3300"
                 android:inputType="textEmailAddress"
-                android:paddingStart="12dp" />
+                android:paddingStart="12dp"
+                android:textColor="#1A3300" />
 
             <!-- Contraseña -->
             <EditText
@@ -70,12 +70,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="#B8CFA7"
                 android:drawableStart="@drawable/baseline_lock"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:backgroundTint="#B8CFA7"
-                android:textColor="#1A3300"
-                android:paddingStart="12dp" />
+                android:paddingStart="12dp"
+                android:textColor="#1A3300" />
 
             <!-- Botón iniciar sesión -->
             <Button
@@ -83,22 +83,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:backgroundTint="#7A9C2F"
                 android:text="INICIAR SESIÓN"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:backgroundTint="#7A9C2F"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <!-- Enlace a registro -->
             <TextView
                 android:id="@+id/goToRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
                 android:text="¿No registrado?, regístrate"
                 android:textColor="#4B6F2F"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center_horizontal" />
+                android:textSize="14sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
