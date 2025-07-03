@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
             android:text="Fecha personalizada"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/agregar" />
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Hábito de crecimiento:"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Tipo de crecimiento:"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -135,19 +135,19 @@
                 android:layout_width="107dp"
                 android:layout_height="48dp"
                 android:text="Clinómetro"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:layout_width="115dp"
                 android:layout_height="48dp"
                 android:text="Pistola Haga"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:layout_width="70dp"
                 android:layout_height="48dp"
                 android:text="A ojo"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
         </RadioGroup>
 
         <!-- Diámetro del fuste -->
@@ -178,19 +178,19 @@
                 android:layout_width="125dp"
                 android:layout_height="48dp"
                 android:text="Cinta métrica"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:layout_width="80dp"
                 android:layout_height="48dp"
                 android:text="Vernier"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:layout_width="125dp"
                 android:layout_height="48dp"
                 android:text="A ojo"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
         </RadioGroup>
 
         <!-- Aquí continúa la estructura de los elementos como el estado de salud, disturbios, etc. -->
@@ -201,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Estado de salud:"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -221,19 +221,19 @@
                 android:layout_width="80dp"
                 android:layout_height="48dp"
                 android:text="Bueno"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:layout_width="85dp"
                 android:layout_height="48dp"
                 android:text="Regular"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:layout_width="80dp"
                 android:layout_height="48dp"
                 android:text="Malo"
-                android:textColor="#000000" />
+                android:textColor="@color/white" />
         </RadioGroup>
 
         <!-- Disturbios meteorológicos -->
@@ -244,7 +244,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Disturbios meteorológicos"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +266,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Interacciones interespecífica:"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -289,7 +289,7 @@
             android:background="@color/white"
             android:hint="Especie u organismo involucrado"
             android:minHeight="48dp"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -304,7 +304,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Presencia de combustibles naturales"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEspecie" />
 
@@ -313,7 +313,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Combustible finos"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             android:visibility="gone"
