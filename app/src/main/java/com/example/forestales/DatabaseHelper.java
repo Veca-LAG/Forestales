@@ -1,4 +1,5 @@
 package com.example.forestales;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,27 +10,28 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String databaseName = "Forestales.db";
 
-    public DatabaseHelper(@Nullable Context context){
-        super(context,"Forestales.db", null, 1);
+    public DatabaseHelper(@Nullable Context context) {
+        super(context, "Forestales.db", null, 1);
     }
-    @Override
-    public  void onCreate(SQLiteDatabase MyDatabase){
-        MyDatabase.execSQL("create Table users(email Text primary key, password TEXT, job TEXT)");
 
-        MyDatabase.execSQL("CREATE TABLE Arboles (" +
-                "idArbol INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "numeroAcceso TEXT, " +
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE users(email TEXT PRIMARY KEY, password TEXT, job TEXT)");
+
+        db.execSQL("CREATE TABLE Arboles (" +
+                "numeroAcceso INTEGER PRIMARY KEY, " +
                 "nombreFamilia TEXT, " +
                 "nombreComun TEXT, " +
                 "nombreCientificoGenero TEXT, " +
                 "nombreCientificoEspecie TEXT, " +
                 "especieOriginaria BOOLEAN, " +
                 "ecologiaDistribucion TEXT, " +
-                "clasificacionTaxonomica TEXT , " +
+                "clasificacionTaxonomica TEXT, " +
                 "coordenadas TEXT)");
-        MyDatabase.execSQL("CREATE TABLE registro (" +
+
+        db.execSQL("CREATE TABLE registro (" +
                 "idRegistro INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "fecha DATE, " +
+                "fecha TEXT, " + // Cambiado de DATE a TEXT para mayor compatibilidad
                 "numeroAcceso INTEGER, " +
                 "habitoCrecimiento TEXT, " +
                 "tipoCrecimiento TEXT, " +
@@ -55,63 +57,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "usos TEXT, " +
                 "Observaciones TEXT, " +
                 "FOREIGN KEY(numeroAcceso) REFERENCES Arboles(numeroAcceso))");
-
-        MyDatabase.execSQL("CREATE TABLE imagen (" +
-                "idRegistro INTEGER, " +
-                "archivoHojas BLOB, extensionHojas TEXT, " +
-                "archivoFlores BLOB, extensionFlores TEXT, " +
-                "archivoFrutos BLOB, extensionFrutos TEXT, " +
-                "archivoRamas BLOB, extensionRamas TEXT, " +
-                "archivoCorteza BLOB, extensionCorteza TEXT, " +
-                "archivoGeneral BLOB, extensionGeneral TEXT, " +
-                "FOREIGN KEY(idRegistro) REFERENCES registro(idRegistro))");
-
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-        MyDB.execSQL("drop Table if exists users");
-        MyDB.execSQL("drop Table if exists Arboles");
-        MyDB.execSQL("drop Table if exists registro");
-        MyDB.execSQL("drop Table if exists imagen");
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS users");
+        db.execSQL("DROP TABLE IF EXISTS Arboles");
+        db.execSQL("DROP TABLE IF EXISTS registro");
+        onCreate(db);
     }
 
-
-    public Boolean insertUser(String email, String password, String job){
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("email", email);
-        contentValues.put("password", password);
-        contentValues.put("job", job);
-        long result = MyDatabase.insert("users", null, contentValues);
-
-        if (result == -1) {
-            return false;
-        } else {
-            return true;
-        }
+    // Métodos para usuarios
+    public boolean insertUser(String email, String password, String job) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("email", email);
+        values.put("password", password);
+        values.put("job", job);
+        long result = db.insert("users", null, values);
+        return result != -1;
     }
 
-    public Boolean checkEmail(String email){
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from users where email = ?", new String[]{email});
-
-        if(cursor.getCount() > 0) {
-            return true;
-        }else {
-            return false;
-        }
-    }
-    public Boolean checkEmailPassword(String email, String password){
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from users where email = ? and password = ?", new String[]{email, password});
-
-        if (cursor.getCount() > 0) {
-            return true;
-        }else {
-            return false;
-        }
+    public boolean checkEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email = ?", new String[]{email});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
     }
 
+    public boolean checkEmailPassword(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM users WHERE email = ? AND password = ?",
+                new String[]{email, password}
+        );
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+
+    // Métodos para árboles
+    public Cursor getAllTrees() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT numeroAcceso, nombreComun, nombreCientificoGenero, nombreCientificoEspecie " +
+                        "FROM Arboles ORDER BY nombreComun",
+                null
+        );
+    }
+
+    public Cursor getTreeById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+                "SELECT * FROM Arboles WHERE numeroAcceso = ?",
+                new String[]{String.valueOf(id)}
+        );
+    }
+
+    public boolean insertArbol(ContentValues values) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.insert("Arboles", null, values);
+        return result != -1;
+    }
+
+    public boolean insertRegistro(ContentValues values) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.insert("registro", null, values);
+        return result != -1;
+    }
 }

@@ -23,7 +23,7 @@ public class EraseActivity extends AppCompatActivity {
             return insets;
         });
 
-        /*boton anterior*/
+
         Button anteriorButton = findViewById(R.id.btnVolver);
 
         anteriorButton.setOnClickListener(v -> finish());

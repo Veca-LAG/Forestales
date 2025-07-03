@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permisos (mantenidos igual) -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" /> <!-- Solo necesario para SDK <=28 -->
+        android:maxSdkVersion="28" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -22,40 +23,66 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Forestales"
         tools:targetApi="31">
-        <activity
-            android:name=".ViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ModifyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EraseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OptionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity3"
-            android:exported="false" />
+
+        <!-- Actividades principales -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+
+        <!-- Actividades de flujo principal -->
+        <activity
+            android:name=".OptionActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
 
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+
+        <!-- Actividades de gestión de árboles -->
+        <activity
+            android:name=".ViewActivity"
+            android:exported="false"
+            android:parentActivityName=".OptionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OptionActivity" />
+        </activity>
+
+        <activity
+            android:name=".TreeDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".ViewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewActivity" />
+        </activity>
+
+        <activity
+            android:name=".ModifyActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EraseActivity"
+            android:exported="false" />
+
+        <!-- FileProvider para manejo de archivos -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.forestales.fileprovider"
@@ -67,5 +94,4 @@
         </provider>
 
     </application>
-
 </manifest>
