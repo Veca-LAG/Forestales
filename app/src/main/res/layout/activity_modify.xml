@@ -32,7 +32,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
                 android:text="Modificar árboles"
-                android:textColor="#B7E283	"
+                android:textColor="#C7E8A9"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
