@@ -17,14 +17,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDatabase.execSQL("create Table users(email Text primary key, password TEXT, job TEXT)");
 
         MyDatabase.execSQL("CREATE TABLE Arboles (" +
-                "numeroAcceso INTEGER PRIMARY KEY, " +
+                "idArbol INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "numeroAcceso TEXT, " +
                 "nombreFamilia TEXT, " +
                 "nombreComun TEXT, " +
                 "nombreCientificoGenero TEXT, " +
                 "nombreCientificoEspecie TEXT, " +
                 "especieOriginaria BOOLEAN, " +
                 "ecologiaDistribucion TEXT, " +
-                "clasificaionTaxonomica TEXT, " +
+                "clasificacionTaxonomica TEXT , " +
                 "coordenadas TEXT)");
         MyDatabase.execSQL("CREATE TABLE registro (" +
                 "idRegistro INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -73,7 +74,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists Arboles");
         MyDB.execSQL("drop Table if exists registro");
         MyDB.execSQL("drop Table if exists imagen");
+
     }
+
 
     public Boolean insertUser(String email, String password, String job){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
