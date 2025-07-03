@@ -74,6 +74,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"
+            android:background="@drawable/spinner_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHabito" />
@@ -101,6 +102,7 @@
             android:layout_width="270dp"
             android:layout_height="50dp"
             android:minHeight="48dp"
+            android:background="@drawable/spinner_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +117,7 @@
             android:hint="Altura (m)"
             android:minHeight="48dp"
             android:textColor="#000000"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -160,6 +163,7 @@
             android:hint="Diámetro del fuste (cm)"
             android:minHeight="48dp"
             android:textColor="#000000"
+            android:textColorHint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rgAltura" />
 
@@ -255,6 +259,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
+            android:background="@drawable/spinner_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisturbios" />
@@ -277,6 +282,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
+            android:background="@drawable/spinner_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInteraccion" />
@@ -286,10 +292,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@color/white"
+            android:textColorHint="@color/black"
             android:hint="Especie u organismo involucrado"
             android:minHeight="48dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:background="#F5F5DC	"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
