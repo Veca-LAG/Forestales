@@ -10,7 +10,7 @@ ForestApp es una aplicación móvil desarrollada con Android Studio que permite 
 
 ## 📌 Descripción del Proyecto
 
-**Forestales** es una aplicación móvil Android que permite registrar información detallada de árboles en campo, con fines de conservación, monitoreo ecológico y análisis botánico. Inspirado en estándares como los de **Trópicos.org**, este sistema facilita una documentación científica precisa, desde la morfología hasta las condiciones ambientales.
+**ForestApp** es una aplicación móvil Android que permite registrar información detallada de árboles en campo, con fines de conservación, monitoreo ecológico y análisis botánico. Inspirado en estándares como los de **Trópicos.org**, este sistema facilita una documentación científica precisa, desde la morfología hasta las condiciones ambientales.
 
 ---
 ## ✨ Funcionalidades
