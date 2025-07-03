@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B2FFFF">
+    android:background="#2E4600">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="ForestApp"
-            android:textColor="@color/black"
+            android:textColor="#C7E8A9"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +30,7 @@
 
         <TextView
             android:id="@+id/tvHojas"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -53,11 +54,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"
+            android:background="@drawable/spinner_background"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seekHojas" />
-
 
         <LinearLayout
             android:id="@+id/layoutBotonesHojas"
@@ -104,11 +105,12 @@
         <!-- FLORES -->
         <TextView
             android:id="@+id/tvFlores"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Flores: 0%"
             android:drawableStart="@drawable/baseline_flower"
+            android:text="Flores: 0%"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgHojas" />
@@ -165,6 +167,7 @@
         <!-- FRUTOS -->
         <TextView
             android:id="@+id/tvFrutos"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -176,6 +179,7 @@
 
         <SeekBar
             android:id="@+id/seekFrutos"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tvFrutos"
@@ -188,10 +192,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"
+            android:background="@drawable/spinner_background"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seekFrutos" />
+
+
 
         <LinearLayout
             android:id="@+id/layoutBotonesFrutos"
@@ -235,6 +242,7 @@
         <!-- RAMAS -->
         <TextView
             android:id="@+id/tvRamas"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
